@@ -200,13 +200,3 @@ button:hover {
 .keys-copied #copyStatus {
     visibility: visible;
 }
-
-/* Generate More Button */
-#generateMore {
-    display: none; /* Initially hidden */
-}
-
-/* Show Generate More Button only when all keys are generated */
-.keys-generated #generateMore {
-    display: inline-block;
-}
