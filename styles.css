@@ -1,321 +1,196 @@
-/* General Body Styles */
+/* Global Styling */
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
-    color: #ffffff;
+    background: linear-gradient(to right, #1f1c2c, #928dab); /* Dark gradient background */
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    overflow: hidden; /* Prevent scrolling */
 }
 
 /* Container Styling */
 .container {
-    background: rgba(255, 255, 255, 0.1); /* Transparent container */
+    background: rgba(0, 0, 0, 0.8); /* Transparent black background */
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); /* Deep shadow */
-    padding: 50px;
-    max-width: 600px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    max-width: 450px;
     width: 100%;
     text-align: center;
-    backdrop-filter: blur(10px); /* Blur background behind container */
-    color: #ffffff;
+    position: relative;
+    overflow: hidden; /* Hide overflow for effects */
 }
 
-/* Header Styling */
+/* Heading Styling */
 h1 {
     margin-bottom: 30px;
-    font-size: 32px;
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-size: 28px;
+    color: #ffb3ff; /* Light pink text */
+    text-shadow: 2px 2px 4px #000; /* Shadow effect */
 }
 
-/* Grid Container for Game Options */
+/* Grid Container */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 20px;
-    max-height: 400px;
+    max-height: 300px;
     overflow-y: auto;
-    padding-right: 15px;
+    padding-right: 10px;
 }
 
 /* Game Option Styling */
 .game-option {
-    border: 2px solid #ffffff;
-    border-radius: 15px;
-    padding: 20px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 15px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-    background: linear-gradient(145deg, #6dd5ed, #2193b0); /* Cool blue gradient */
+    transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+    background: rgba(255, 255, 255, 0.1);
     position: relative;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Soft glow */
+    overflow: hidden;
+    color: #fff;
 }
 
-/* Glitter Animation Keyframes */
+/* Glitter Effect - Differentiated for each game */
+.game-option.selected {
+    border-color: #ff007f; /* Different color for selected */
+    animation: glitter 2s infinite; /* Glitter animation */
+    background: linear-gradient(45deg, #ff007f, #ff8c00); /* Gradient for selected */
+}
+
 @keyframes glitter {
-    0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
-    50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+    0%, 100% { box-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f; }
+    50% { box-shadow: 0 0 20px #ff8c00, 0 0 40px #ff8c00; }
 }
 
-.glitter-effect {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150%;
-    height: 150%;
-    background: radial-gradient(circle, rgba(255,255,255,0.5) 20%, transparent 80%);
-    pointer-events: none;
-    z-index: 1;
-    animation: glitter 2s infinite;
+/* Hover and Selection Effects */
+.game-option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
-/* Different Glitter Effects for Game Selection */
-.game-option.selected::before {
+.game-option.selected::after {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: radial-gradient(circle, #ffffff 10%, transparent 70%);
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(45deg);
     pointer-events: none;
-    z-index: 1;
-    animation: glitter 2s infinite;
+    animation: moveLight 3s infinite;
 }
 
-.game-option.selected.gang-war {
-    background: linear-gradient(145deg, #ff6a00, #ee0979); /* Fiery gradient */
-    border-color: #ff5722;
+@keyframes moveLight {
+    0% { left: -100%; top: -100%; }
+    50% { left: 100%; top: 100%; }
+    100% { left: -100%; top: -100%; }
 }
 
-.game-option.selected.racing {
-    background: linear-gradient(145deg, #56ccf2, #2f80ed); /* Cool blue gradient */
-    border-color: #007aff;
-}
-
-.game-option.selected.puzzle {
-    background: linear-gradient(145deg, #ffafbd, #ffc3a0); /* Soft pink gradient */
-    border-color: #ff4081;
-}
-
-.game-option.selected {
-    transform: scale(1.1);
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 50px rgba(255, 255, 255, 0.5); /* Bright glow */
-}
-
-/* Hover Effect */
-.game-option:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-}
-
-/* Image in Game Option */
+/* Game Option Images */
 .game-option img {
     width: 100%;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    transition: transform 0.3s;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: filter 0.4s;
 }
 
 .game-option:hover img {
-    transform: scale(1.1);
+    filter: brightness(1.2);
 }
 
-/* Text in Game Option */
-.game-option p {
-    font-weight: 600;
-    color: #ffffff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-/* Form Group Styling */
-.form-group {
-    margin-bottom: 25px;
-    text-align: left;
-}
-
-/* Label Styling */
+/* Labels and Text */
 label {
     display: block;
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: #ffffff;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #ffb3ff;
 }
 
-/* Slider Styling */
-.key-slider {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+p {
+    font-weight: 500;
+    color: #fff;
 }
 
+/* Key Slider */
 .key-slider input[type="range"] {
     -webkit-appearance: none;
     width: 100%;
-    height: 12px;
-    border-radius: 6px;
-    background: #ffffff;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #ff007f, #ff8c00);
     outline: none;
     transition: background 0.3s;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Soft glow */
 }
 
 .key-slider input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    background: #ff4081; /* Pink thumb */
+    background: #ff007f;
     cursor: pointer;
     transition: background 0.3s;
-    box-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
 }
 
 .key-slider input[type="range"]:hover::-webkit-slider-thumb {
-    background: #e91e63; /* Darker pink on hover */
+    background: #ff8c00;
 }
 
-/* Key Value Display */
-#keyValue {
-    font-size: 20px;
-    font-weight: bold;
-    color: #ff4081;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-/* Button Styling */
+/* Buttons */
 button {
-    background-color: #ff4081; /* Pink */
+    background-color: #ff007f;
     color: white;
     border: none;
     padding: 14px 24px;
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    margin-top: 20px;
-    box-shadow: 0 0 10px rgba(255, 64, 129, 0.5); /* Pink glow */
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.5); /* Pink glow */
 }
 
 button:hover {
-    background-color: #e91e63; /* Darker pink */
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(233, 30, 99, 0.5);
+    background-color: #ff8c00;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.5); /* Orange glow */
 }
 
-/* Hidden Element Styling */
-.hidden {
-    display: none;
-}
-
-/* Progress Bar Styling */
-.progress-bar {
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 25px;
+/* Loading Spinner */
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top: 4px solid #ff007f;
+    border-radius: 50%;
+    width: 40px;
     height: 40px;
-    position: relative;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    animation: loading 1s linear infinite;
+    margin: 30px auto;
 }
 
-.progress-bar div {
-    height: 100%;
-    background-color: #ff4081; /* Pink */
-    width: 0;
-    transition: width 0.5s;
-    box-shadow: 0 0 20px rgba(255, 64, 129, 0.5); /* Pink glow */
-}
-
-/* Progress Text Styling */
-#progressText {
-    margin-top: 15px;
-    font-weight: 600;
-    color: #ffffff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-/* Key Item Styling */
-.key-item {
-    display: flex;
-    align-items: center;
-    margin-top: 15px;
-}
-
-.key-item input {
-    flex: 1;
-    padding: 14px;
-    font-size: 16px;
-    border: 1px solid #ffffff;
-    border-radius: 10px;
-    margin-right: 15px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Soft glow */
-    background: rgba(255, 255, 255, 0.2); /* Semi-transparent input background */
-    color: #ffffff; /* White text */
-}
-
-/* Copy Button Styling */
-.copyKeyBtn {
-    background-color: #28a745; /* Green */
-    border: none;
-    padding: 14px 24px;
-    color: white;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5); /* Green glow */
-}
-
-.copyKeyBtn:hover {
-    background-color: #218838; /* Darker green */
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(33, 136, 56, 0.5);
-}
-
-/* Footer Styling */
-.footer {
-    margin-top: 30px;
-    font-size: 14px;
-    color: #ffffff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-/* Copy Status Message */
-#copyStatus {
-    margin-top: 20px;
-    color: #28a745; /* Green */
-    font-weight: bold;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-/* Loading Spinner Animation */
 @keyframes loading {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-.loading-spinner {
-    border: 4px solid rgba(255, 255, 255, 0.2); /* Light border */
-    border-top: 4px solid #ffffff; /* White top border */
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: loading 1s linear infinite;
-    margin: 20px auto;
+/* Footer */
+.footer {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #ffb3ff;
+    text-shadow: 2px 2px 4px #000;
 }
 
-/* Loading Text */
-.loading-text {
-    color: #ffffff;
+/* Copy Status Message */
+#copyStatus {
+    margin-top: 20px;
+    color: #28a745;
     font-weight: bold;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    margin-top: 10px;
 }
