@@ -8,6 +8,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Container Styling */
@@ -16,8 +17,9 @@ body {
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
     padding: 40px;
-    max-width: 450px;
+    max-width: 90%; /* Make it responsive */
     width: 100%;
+    max-width: 450px;
     text-align: center;
     position: relative;
     overflow: hidden; /* Hide overflow for effects */
@@ -26,7 +28,7 @@ body {
 /* Heading Styling */
 h1 {
     margin-bottom: 30px;
-    font-size: 28px;
+    font-size: 24px; /* Adjusted font size for better responsiveness */
     color: #ffb3ff; /* Light pink text */
     text-shadow: 2px 2px 4px #000; /* Shadow effect */
 }
@@ -34,7 +36,7 @@ h1 {
 /* Grid Container */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
     gap: 15px;
     margin-bottom: 20px;
     max-height: 300px;
@@ -199,4 +201,9 @@ button:hover {
 /* Show Copy Status Message only when keys are copied */
 .keys-copied #copyStatus {
     visibility: visible;
+}
+
+/* Remove Generate More Button */
+#generateMore {
+    display: none; /* Button removed */
 }
