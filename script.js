@@ -4,42 +4,42 @@ document.addEventListener('DOMContentLoaded', () => {
             name: 'Riding Extreme 3D',
             appToken: 'd28721be-fd2d-4b45-869e-9f253b554e50',
             promoId: '43e35910-c168-4634-ad4f-52fd764a843f',
-            timing: 20000, // 30 seconds
+            timing: 30000, // 30 seconds
             attempts: 25,
         },
         2: {
             name: 'Chain Cube 2048',
             appToken: 'd1690a07-3780-4068-810f-9b5bbf2931b2',
             promoId: 'b4170868-cef0-424f-8eb9-be0622e8e8e3',
-            timing: 20000, // 30 seconds
+            timing: 30000, // 30 seconds
             attempts: 20,
         },
         3: {
             name: 'My Clone Army',
             appToken: '74ee0b5b-775e-4bee-974f-63e7f4d5bacb',
             promoId: 'fe693b26-b342-4159-8808-15e3ff7f8767',
-            timing: 20000, // 180 seconds
+            timing: 180000, // 180 seconds
             attempts: 30,
         },
         4: {
             name: 'Train Miner',
             appToken: '82647f43-3f87-402d-88dd-09a90025313f',
             promoId: 'c4480ac7-e178-4973-8061-9ed5b2e17954',
-            timing: 20000, // 30 seconds
+            timing: 30000, // 30 seconds
             attempts: 15,
         },
         5: {
             name: 'Merge Away',
             appToken: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833',
             promoId: 'dc128d28-c45b-411c-98ff-ac7726fbaea4',
-            timing: 20000, // 30 seconds
+            timing: 30000, // 30 seconds
             attempts: 25,
         },
         6: {
             name: 'Twerk Race 3D',
             appToken: '61308365-9d16-4040-8bb0-2f4a4c69074c',
             promoId: '61308365-9d16-4040-8bb0-2f4a4c69074c',
-            timing: 20000, // 30 seconds
+            timing: 30000, // 30 seconds
             attempts: 20,
         },
         7: {
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: 'Gangs Wars',
             appToken: 'b6de60a0-e030-48bb-a551-548372493523',
             promoId: 'c7821fa7-6632-482c-9635-2bd5798585f9',
-            timing: 30000, // 40 seconds
+            timing: 40000, // 40 seconds
             attempts: 30,
         }
     };
@@ -102,20 +102,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const generatedKeysTitle = document.getElementById('generatedKeysTitle');
     const copyStatus = document.getElementById('copyStatus');
     const generateMoreBtn = document.getElementById('generateMoreBtn');
-    const sourceCode = document.getElementById('sourceCode');
+    const Buycoffee = document.getElementById('Buycoffee');
 
     let selectedGame = null;
 
-    gameOptions.forEach(option => {
-        option.addEventListener('click', () => {
-            gameOptions.forEach(opt => opt.classList.remove('selected'));
-            option.classList.add('selected');
-            selectedGame = option.dataset.game;
-
-            keyCountGroup.classList.remove('hidden');
-            startBtn.classList.remove('hidden');
-        });
+    Buycoffee.addEventListener('click', () => {
+        window.open('https://t.me/Buycoffeeforima', '_blank');
     });
+    
+gameOptions.forEach(option => {
+    option.addEventListener('click', () => {
+        gameOptions.forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected');
+        selectedGame = option.dataset.game;
+
+        keyCountGroup.classList.remove('hidden');
+        startBtn.classList.remove('hidden');
+        
+        // Smooth scroll to the key count group
+        keyCountGroup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+});
 
     keyRange.addEventListener('input', () => {
         keyValue.innerText = keyRange.value;
