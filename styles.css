@@ -46,8 +46,9 @@ h1 {
     gap: 15px;
     margin-bottom: 20px;
     scroll-snap-type: x mandatory;
-    background: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+    background: rgba(0, 0, 0, 0.3); 
     border-radius: 10px;
+    position: relative;
 }
 
 .grid-container::-webkit-scrollbar {
@@ -72,19 +73,20 @@ h1 {
     padding: 12px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s, background-color 0.4s;
+    transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s, background-color 0.4s, filter 0.4s;
     background: rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
     color: #ddd;
     font-size: 14px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    scroll-snap-align: center; /* Snap to center */
+    scroll-snap-align: center;
+    filter: brightness(0.9);
 }
 
 .game-option.selected {
     border-color: #ff007f;
-    animation: shimmer 2s infinite;
+    animation: shimmer 2s infinite, pulse 1s infinite;
     background: linear-gradient(45deg, #ff007f, #ffdd00, #50C878, #007FFF, #FFA500);
     background-size: 400%;
     background-position: 0% 50%;
@@ -96,11 +98,19 @@ h1 {
     100% { background-position: 0% 50%; }
 }
 
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.9; }
+}
+
 /* Hover and Selection Effects */
 .game-option:hover {
     transform: scale(1.1);
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
     background: rgba(255, 255, 255, 0.2);
+    filter: brightness(1.2) contrast(1.1);
+    transition: transform 0.4s, background-color 0.4s, filter 0.4s;
 }
 
 /* Game Option Images */
@@ -113,7 +123,7 @@ h1 {
 
 .game-option:hover img {
     filter: brightness(1.4);
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 /* Buttons */
@@ -125,7 +135,7 @@ button {
     font-size: 14px;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.4s, transform 0.4s, box-shadow 0.4s;
+    transition: background-color 0.4s, transform 0.4s, box-shadow 0.4s, filter 0.4s;
     box-shadow: 0 0 15px rgba(255, 94, 58, 0.7); 
 }
 
@@ -133,6 +143,7 @@ button:hover {
     background-color: #ffdd40;
     transform: scale(1.08);
     box-shadow: 0 0 25px rgba(255, 221, 64, 0.7); 
+    filter: brightness(1.1);
 }
 
 /* Footer */
