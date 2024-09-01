@@ -1,7 +1,7 @@
 /* Global Styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle, #1b2735, #090a0f); /* Dark space-like background */
+    background: radial-gradient(circle, #1b2735, #090a0f); 
     color: #eee;
     display: flex;
     justify-content: center;
@@ -13,12 +13,12 @@ body {
 
 /* Container Styling */
 .container {
-    background: rgba(15, 15, 15, 0.95); /* Semi-transparent black background */
+    background: rgba(15, 15, 15, 0.95); 
     border-radius: 15px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
     padding: 20px;
     max-width: 100%;
-    width: 350px;
+    width: 500px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -32,30 +32,42 @@ body {
 
 /* Heading Styling */
 h1 {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-size: 22px;
-    color: #ff9cf9; /* Neon pink text */
+    color: #ff9cf9; 
     text-shadow: 0 0 8px #ff9cf9, 0 0 20px #ff9cf9;
 }
 
-/* Grid Container for Game Selection */
+/* Horizontal Scroll Container */
 .grid-container {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column for vertical scrolling */
-    gap: 10px;
-    margin-bottom: 15px;
-    max-height: 200px;
-    overflow-y: auto;
-    padding-right: 8px;
-    scrollbar-width: thin; /* Thinner scrollbar */
-    scrollbar-color: #ff9cf9 rgba(0, 0, 0, 0.5); /* Custom scrollbar color */
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    gap: 15px;
+    margin-bottom: 20px;
+    scroll-snap-type: x mandatory;
+}
+
+.grid-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.grid-container::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+}
+
+.grid-container::-webkit-scrollbar-track {
+    background-color: #1b2735;
 }
 
 /* Game Option Styling */
 .game-option {
+    flex: 0 0 auto;
+    width: 100px;
     border: 2px solid transparent;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 12px;
+    padding: 12px;
     text-align: center;
     cursor: pointer;
     transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
@@ -64,68 +76,45 @@ h1 {
     overflow: hidden;
     color: #ddd;
     font-size: 14px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .game-option.selected {
     border-color: #ff007f;
-    background: linear-gradient(45deg, #ff007f, #ffdd00, #00d9ff); /* Multiple colors */
+    animation: shimmer 2s infinite;
+    background: linear-gradient(45deg, #ff007f, #ffdd00, #50C878, #007FFF, #FFA500);
+    background-size: 400%;
+    background-position: 0% 50%;
 }
 
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Hover and Selection Effects */
 .game-option:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
-}
-
-.game-option.selected::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: rotate(45deg);
-    pointer-events: none;
-    animation: moveLight 4s infinite;
-}
-
-@keyframes moveLight {
-    0% { left: -120%; top: -120%; }
-    50% { left: 120%; top: 120%; }
-    100% { left: -120%; top: -120%; }
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
 }
 
 /* Game Option Images */
 .game-option img {
     width: 80%;
-    border-radius: 8px;
-    margin-bottom: 5px;
+    border-radius: 10px;
+    margin-bottom: 8px;
     transition: filter 0.4s, transform 0.4s;
 }
 
 .game-option:hover img {
-    filter: brightness(1.3);
+    filter: brightness(1.4);
     transform: scale(1.05);
-}
-
-/* Scrollbar Styling */
-.grid-container::-webkit-scrollbar {
-    width: 8px;
-}
-
-.grid-container::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.3);
-}
-
-.grid-container::-webkit-scrollbar-thumb {
-    background-color: #ff9cf9;
-    border-radius: 10px;
 }
 
 /* Buttons */
 button {
-    background-color: #ff007f;
+    background-color: #ff5e3a;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -133,19 +122,19 @@ button {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.4s, transform 0.4s, box-shadow 0.4s;
-    box-shadow: 0 0 15px rgba(255, 0, 127, 0.7);
+    box-shadow: 0 0 15px rgba(255, 94, 58, 0.7); 
 }
 
 button:hover {
-    background-color: #ffdd00;
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 221, 0, 0.7);
+    background-color: #ffdd40;
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(255, 221, 64, 0.7); 
 }
 
 /* Footer */
 .footer {
-    margin-top: 15px;
-    font-size: 12px;
-    color: #ff9cff;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #ff9cff; 
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
