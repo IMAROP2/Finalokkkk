@@ -16,9 +16,9 @@ body {
     background: rgba(15, 15, 15, 0.95);
     border-radius: 15px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
-    padding: 30px;
-    width: 100%;
-    max-width: 480px;
+    padding: 20px;
+    max-width: 90%;
+    width: 360px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -32,127 +32,86 @@ body {
 
 /* Heading Styling */
 h1 {
-    margin-bottom: 25px;
-    font-size: 24px;
+    margin-bottom: 15px;
+    font-size: 22px;
     color: #ff9cf9;
     text-shadow: 0 0 8px #ff9cf9, 0 0 20px #ff9cf9;
 }
 
-/* Horizontal Scrolling Game Container */
-.horizontal-scroll {
+/* Horizontal Game Selector */
+.game-selector {
     display: flex;
+    gap: 10px;
     overflow-x: auto;
-    gap: 15px;
     padding: 10px 0;
-    scroll-snap-type: x mandatory;
+    margin-bottom: 15px;
+    scrollbar-width: none;
 }
 
-.horizontal-scroll::-webkit-scrollbar {
+.game-selector::-webkit-scrollbar {
     display: none;
 }
 
 /* Game Option Styling */
 .game-option {
-    flex: 0 0 auto;
-    scroll-snap-align: center;
     border: 2px solid transparent;
     border-radius: 12px;
-    padding: 15px;
+    padding: 10px;
+    min-width: 100px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s, background 0.4s;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s, background-color 0.3s;
     background: rgba(255, 255, 255, 0.1);
     color: #ddd;
-    font-size: 16px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    min-width: 120px;
-    min-height: 120px;
-    position: relative;
+    font-size: 14px;
+    flex: 0 0 auto;
 }
 
 .game-option.selected {
     border-color: #ff007f;
-    background: linear-gradient(45deg, #ff007f, #ffdd00, #00ffdd);
-    animation: colorShift 4s infinite;
+    background-color: #ff007f;
+    color: #fff;
 }
 
-@keyframes colorShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Hover and Selection Effects */
 .game-option:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
-}
-
-.game-option.selected::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: rotate(45deg);
-    pointer-events: none;
-    animation: moveLight 4s infinite;
-}
-
-@keyframes moveLight {
-    0% { left: -120%; top: -120%; }
-    50% { left: 120%; top: 120%; }
-    100% { left: -120%; top: -120%; }
-}
-
-/* Game Option Images */
-.game-option img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 8px;
-    transition: filter 0.4s, transform 0.4s;
-}
-
-.game-option:hover img {
-    filter: brightness(1.4);
     transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    background-color: #ff9cf9;
 }
 
-/* Labels and Text */
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #ff9cf9;
+/* Dynamic Color Change */
+.game-option:active {
+    animation: colorCycle 2s infinite;
 }
 
-p {
-    font-weight: 500;
-    color: #ccc;
+@keyframes colorCycle {
+    0% { background-color: #ff007f; }
+    25% { background-color: #ffdd00; }
+    50% { background-color: #00ffd5; }
+    75% { background-color: #ff007f; }
+    100% { background-color: #00ffd5; }
 }
 
 /* Key Slider */
 .key-slider input[type="range"] {
     -webkit-appearance: none;
     width: 100%;
-    height: 8px;
-    border-radius: 6px;
+    height: 6px;
+    border-radius: 5px;
     background: linear-gradient(90deg, #ff007f, #ffdd00);
     outline: none;
-    transition: background 0.4s;
+    transition: background 0.3s;
 }
 
 .key-slider input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     background: #ff007f;
     cursor: pointer;
-    transition: background 0.4s;
+    transition: background 0.3s;
 }
 
 .key-slider input[type="range"]:hover::-webkit-slider-thumb {
@@ -164,54 +123,37 @@ button {
     background-color: #ff007f;
     color: white;
     border: none;
-    padding: 12px 25px;
-    font-size: 16px;
-    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.4s, transform 0.4s, box-shadow 0.4s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 0 15px rgba(255, 0, 127, 0.7);
 }
 
 button:hover {
     background-color: #ffdd00;
-    transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(255, 221, 0, 0.7);
-}
-
-/* Loading Spinner */
-.loading-spinner {
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    border-top: 5px solid #ff007f;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    animation: loading 0.8s linear infinite;
-    margin: 25px auto;
-}
-
-@keyframes loading {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 221, 0, 0.7);
 }
 
 /* Footer */
 .footer {
-    margin-top: 25px;
-    font-size: 14px;
+    margin-top: 15px;
+    font-size: 12px;
     color: #ff9cff;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 /* Copy Status Message */
 #copyStatus {
-    margin-top: 12px;
+    margin-top: 10px;
     color: #28a745;
     font-weight: bold;
     text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
-    visibility: hidden; /* Initially hidden */
+    visibility: hidden;
 }
 
-/* Show Copy Status Message only when keys are copied */
 .keys-copied #copyStatus {
     visibility: visible;
     animation: fadeInCopyStatus 0.5s ease-in-out;
@@ -220,13 +162,4 @@ button:hover {
 @keyframes fadeInCopyStatus {
     from { opacity: 0; }
     to { opacity: 1; }
-}
-
-/* Enhanced Button Glow */
-button.glow {
-    box-shadow: 0 0 15px rgba(255, 94, 58, 0.7), 0 0 30px rgba(255, 94, 58, 0.4), 0 0 45px rgba(255, 94, 58, 0.2);
-}
-
-button.glow:hover {
-    box-shadow: 0 0 20px rgba(255, 221, 64, 0.7), 0 0 40px rgba(255, 221, 64, 0.5), 0 0 60px rgba(255, 221, 64, 0.3);
 }
