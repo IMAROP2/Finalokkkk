@@ -51,37 +51,31 @@ h1 {
     position: relative;
 }
 
-.grid-container::-webkit-scrollbar {
-    height: 8px;
-}
-
-.grid-container::-webkit-scrollbar-thumb {
-    background-color: #555;
-    border-radius: 10px;
-}
-
-.grid-container::-webkit-scrollbar-track {
-    background-color: #1b2735;
-}
-
 /* Game Option Styling */
 .game-option {
     flex: 0 0 auto;
-    width: 100px;
+    width: 120px;
     border: 2px solid transparent;
     border-radius: 12px;
     padding: 12px;
     text-align: center;
     cursor: pointer;
     transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s, background-color 0.4s, filter 0.4s;
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, #ff007f, #ffdd00, #50C878, #007FFF, #FFA500);
+    background-size: 300% 300%;
     position: relative;
-    overflow: hidden;
-    color: #ddd;
+    color: #fff;
     font-size: 14px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     scroll-snap-align: center;
     filter: brightness(0.9);
+    animation: gradientBG 5s linear infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
 }
 
 .game-option.selected {
@@ -89,13 +83,12 @@ h1 {
     animation: shimmer 2s infinite, pulse 1s infinite;
     background: linear-gradient(45deg, #ff007f, #ffdd00, #50C878, #007FFF, #FFA500);
     background-size: 400%;
-    background-position: 0% 50%;
 }
 
 @keyframes shimmer {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
 }
 
 @keyframes pulse {
@@ -109,7 +102,7 @@ h1 {
     transform: scale(1.1);
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
     background: rgba(255, 255, 255, 0.2);
-    filter: brightness(1.2) contrast(1.1);
+    filter: brightness(1.2) contrast(1.2);
     transition: transform 0.4s, background-color 0.4s, filter 0.4s;
 }
 
