@@ -1,80 +1,85 @@
 /* Global Styling */
 body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to right, #1f1c2c, #928dab); /* Dark gradient background */
-    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle, #1b2735, #090a0f); /* Dark space-like background */
+    color: #eee;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden;
 }
 
 /* Container Styling */
 .container {
-    background: rgba(0, 0, 0, 0.8); /* Transparent black background */
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-    padding: 20px; /* Reduced padding */
-    max-width: 90%; /* Responsive width */
-    width: 100%;
-    max-width: 400px; /* Adjusted max-width for smaller screens */
+    background: rgba(15, 15, 15, 0.95); /* Semi-transparent black background */
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    max-width: 100%;
+    width: 420px;
     text-align: center;
     position: relative;
-    overflow: hidden; /* Hide overflow for effects */
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
 /* Heading Styling */
 h1 {
-    margin-bottom: 20px; /* Reduced margin */
-    font-size: 22px; /* Adjusted font size */
-    color: #ffb3ff; /* Light pink text */
-    text-shadow: 2px 2px 4px #000; /* Shadow effect */
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #ff9cf9; /* Neon pink text */
+    text-shadow: 0 0 8px #ff9cf9, 0 0 20px #ff9cf9;
 }
 
 /* Grid Container */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
-    gap: 10px; /* Reduced gap */
-    margin-bottom: 15px; /* Reduced margin */
-    max-height: 250px; /* Adjusted max-height */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+    max-height: 280px;
     overflow-y: auto;
-    padding-right: 5px; /* Reduced padding */
+    padding-right: 8px;
 }
 
 /* Game Option Styling */
 .game-option {
     border: 2px solid transparent;
-    border-radius: 10px; /* Adjusted border-radius */
-    padding: 10px; /* Reduced padding */
+    border-radius: 12px;
+    padding: 12px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Adjusted transition */
+    transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
     background: rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
-    color: #fff;
-    font-size: 14px; /* Adjusted font size */
+    color: #ddd;
+    font-size: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Glitter Effect - Differentiated for each game */
 .game-option.selected {
-    border-color: #ff007f; /* Different color for selected */
-    animation: glitter 2s infinite; /* Glitter animation */
-    background: linear-gradient(45deg, #ff007f, #ff8c00); /* Gradient for selected */
+    border-color: #ff007f;
+    animation: shimmer 2s infinite;
+    background: linear-gradient(45deg, #ff007f, #ffdd00);
 }
 
-@keyframes glitter {
-    0%, 100% { box-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f; }
-    50% { box-shadow: 0 0 20px #ff8c00, 0 0 40px #ff8c00; }
+@keyframes shimmer {
+    0%, 100% { box-shadow: 0 0 15px #ff007f, 0 0 30px #ff007f; }
+    50% { box-shadow: 0 0 30px #ffdd00, 0 0 60px #ffdd00; }
 }
 
 /* Hover and Selection Effects */
 .game-option:hover {
-    transform: scale(1.05); /* Slightly reduced scale */
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Reduced box-shadow */
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
 }
 
 .game-option.selected::after {
@@ -84,67 +89,68 @@ h1 {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3);
     transform: rotate(45deg);
     pointer-events: none;
-    animation: moveLight 3s infinite;
+    animation: moveLight 4s infinite;
 }
 
 @keyframes moveLight {
-    0% { left: -100%; top: -100%; }
-    50% { left: 100%; top: 100%; }
-    100% { left: -100%; top: -100%; }
+    0% { left: -120%; top: -120%; }
+    50% { left: 120%; top: 120%; }
+    100% { left: -120%; top: -120%; }
 }
 
 /* Game Option Images */
 .game-option img {
     width: 100%;
-    border-radius: 8px;
-    margin-bottom: 5px; /* Reduced margin */
-    transition: filter 0.3s; /* Adjusted transition */
+    border-radius: 10px;
+    margin-bottom: 8px;
+    transition: filter 0.4s, transform 0.4s;
 }
 
 .game-option:hover img {
-    filter: brightness(1.2);
+    filter: brightness(1.4);
+    transform: scale(1.05);
 }
 
 /* Labels and Text */
 label {
     display: block;
-    margin-bottom: 5px; /* Reduced margin */
-    font-weight: 500;
-    color: #ffb3ff;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #ff9cf9;
 }
 
 p {
     font-weight: 500;
-    color: #fff;
+    color: #ccc;
 }
 
 /* Key Slider */
 .key-slider input[type="range"] {
     -webkit-appearance: none;
     width: 100%;
-    height: 6px; /* Reduced height */
-    border-radius: 5px;
-    background: linear-gradient(90deg, #ff007f, #ff8c00);
+    height: 8px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #ff007f, #ffdd00);
     outline: none;
-    transition: background 0.3s;
+    transition: background 0.4s;
 }
 
 .key-slider input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px; /* Reduced width */
-    height: 18px; /* Reduced height */
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background: #ff007f;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.4s;
 }
 
 .key-slider input[type="range"]:hover::-webkit-slider-thumb {
-    background: #ff8c00;
+    background: #ffdd00;
 }
 
 /* Buttons */
@@ -152,29 +158,29 @@ button {
     background-color: #ff007f;
     color: white;
     border: none;
-    padding: 10px 20px; /* Reduced padding */
-    font-size: 14px; /* Adjusted font size */
-    border-radius: 8px; /* Adjusted border-radius */
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 0 10px rgba(255, 0, 127, 0.5); /* Pink glow */
+    transition: background-color 0.4s, transform 0.4s, box-shadow 0.4s;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.7);
 }
 
 button:hover {
-    background-color: #ff8c00;
-    transform: scale(1.05); /* Slightly reduced scale */
-    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5); /* Orange glow */
+    background-color: #ffdd00;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 221, 0, 0.7);
 }
 
 /* Loading Spinner */
 .loading-spinner {
-    border: 4px solid rgba(255, 255, 255, 0.2);
-    border-top: 4px solid #ff007f;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid #ff007f;
     border-radius: 50%;
-    width: 30px; /* Reduced width */
-    height: 30px; /* Reduced height */
-    animation: loading 1s linear infinite;
-    margin: 20px auto; /* Reduced margin */
+    width: 35px;
+    height: 35px;
+    animation: loading 0.8s linear infinite;
+    margin: 25px auto;
 }
 
 @keyframes loading {
@@ -184,22 +190,63 @@ button:hover {
 
 /* Footer */
 .footer {
-    margin-top: 20px; /* Reduced margin */
-    font-size: 12px; /* Adjusted font size */
-    color: #ffb3ff;
-    text-shadow: 2px 2px 4px #000;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #ff9cff; /* Bright pink color */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 /* Copy Status Message */
 #copyStatus {
-    margin-top: 10px; /* Reduced margin */
+    margin-top: 12px;
     color: #28a745;
     font-weight: bold;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
     visibility: hidden; /* Initially hidden */
 }
 
 /* Show Copy Status Message only when keys are copied */
 .keys-copied #copyStatus {
     visibility: visible;
+    animation: fadeInCopyStatus 0.5s ease-in-out;
+}
+
+@keyframes fadeInCopyStatus {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Buttons */
+button {
+    background-color: #ff5e3a;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.4s, transform 0.4s, box-shadow 0.4s;
+    box-shadow: 0 0 15px rgba(255, 94, 58, 0.7); /* Bright glow */
+}
+
+button:hover {
+    background-color: #ffdd40;
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(255, 221, 64, 0.7); /* Yellow glow */
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top: 4px solid #ff5e3a;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    animation: loading 1s linear infinite;
+    margin: 25px auto;
+}
+
+@keyframes loading {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
