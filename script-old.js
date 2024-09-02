@@ -346,3 +346,43 @@ gameOptions.forEach(option => {
         }
     };
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const darkModeSwitch = document.getElementById('darkModeSwitch');
+    const body = document.body;
+
+    // Load saved preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        body.classList.add('dark-mode');
+        darkModeSwitch.checked = true;
+    }
+
+    darkModeSwitch.addEventListener('change', () => {
+        if (darkModeSwitch.checked) {
+            body.classList.add('dark-mode');
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    });
+});
+
+document.getElementById('submitFeedbackBtn').addEventListener('click', () => {
+    const feedbackInput = document.getElementById('feedbackInput').value;
+    const feedbackStatus = document.getElementById('feedbackStatus');
+
+    if (feedbackInput.trim() === '') {
+        feedbackStatus.textContent = 'Please enter feedback before submitting.';
+        feedbackStatus.classList.remove('hidden');
+        return;
+    }
+
+    // Simulate feedback submission
+    setTimeout(() => {
+        feedbackStatus.textContent = 'Feedback submitted successfully. Thank you!';
+        feedbackStatus.classList.remove('hidden');
+        document.getElementById('feedbackInput').value = ''; // Clear input
+    }, 500); // Simulate a network request delay
+});
