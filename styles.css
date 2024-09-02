@@ -239,11 +239,11 @@ button:hover {
     text-shadow: 1px 1px 2px #000;
 }
 
-/* Enhanced Disclaimer Styling */
+/* Disclaimer Styling */
 .disclaimer {
     font-size: 14px; /* Adjusted font size */
     color: #ffb3b3; /* Light pink text */
-    margin-top: 15px;
+    margin-top: 25px; /* Increased margin for better separation */
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
     border-radius: 5px;
@@ -264,9 +264,9 @@ button:hover {
     border-top: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for separation */
 }
 
-/* Creator Section Styling */
+/* Creator Section Styling with Clickable Link */
 .creator-section {
-    margin-top: 20px; /* Increased margin for better separation */
+    margin-top: 30px; /* Increased margin for better separation */
     padding: 15px;
     background: linear-gradient(90deg, #808080, #ff0000, #0000ff);
     background-size: 300% 300%;
@@ -276,6 +276,21 @@ button:hover {
     font-weight: 600;
     text-shadow: 2px 2px 4px #000;
     animation: gradientShift 5s ease infinite;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.creator-section:hover {
+    transform: scale(1.05); /* Slightly increase size on hover */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Add glow on hover */
+}
+
+.creator-section a {
+    color: inherit; /* Maintain text color */
+    text-decoration: none; /* Remove underline from link */
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 /* Keyframes for moving gradient background */
@@ -284,4 +299,3 @@ button:hover {
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-    content: "If you have any issues, contact the creator of the bot
