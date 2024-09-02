@@ -239,6 +239,8 @@ button:hover {
     text-shadow: 1px 1px 2px #000;
 }
 
+
+
 .disclaimer::after {
     content: "If you have any issues, contact the creator of the bot @Imarop first on Telegram.";
     display: block;
