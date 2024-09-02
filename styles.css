@@ -239,7 +239,18 @@ button:hover {
     text-shadow: 1px 1px 2px #000;
 }
 
-
+/* Enhanced Disclaimer Styling */
+.disclaimer {
+    font-size: 14px; /* Adjusted font size */
+    color: #ffb3b3; /* Light pink text */
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px #000;
+}
 
 .disclaimer::after {
     content: "If you have any issues, contact the creator of the bot @Imarop first on Telegram.";
@@ -252,3 +263,25 @@ button:hover {
     padding-top: 5px;
     border-top: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for separation */
 }
+
+/* Creator Section Styling */
+.creator-section {
+    margin-top: 20px; /* Increased margin for better separation */
+    padding: 15px;
+    background: linear-gradient(90deg, #808080, #ff0000, #0000ff);
+    background-size: 300% 300%;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px #000;
+    animation: gradientShift 5s ease infinite;
+}
+
+/* Keyframes for moving gradient background */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+    content: "If you have any issues, contact the creator of the bot
