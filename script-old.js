@@ -369,20 +369,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.getElementById('submitFeedbackBtn').addEventListener('click', () => {
-    const feedbackInput = document.getElementById('feedbackInput').value;
-    const feedbackStatus = document.getElementById('feedbackStatus');
-
-    if (feedbackInput.trim() === '') {
-        feedbackStatus.textContent = 'Please enter feedback before submitting.';
-        feedbackStatus.classList.remove('hidden');
+document.getElementById('submitFeedback').addEventListener('click', function() {
+    let feedback = document.getElementById('feedbackInput').value;
+    
+    // Validate feedback input
+    if (feedback.trim() === "") {
+        alert("Feedback cannot be empty.");
         return;
     }
 
-    // Simulate feedback submission
-    setTimeout(() => {
-        feedbackStatus.textContent = 'Feedback submitted successfully. Thank you!';
-        feedbackStatus.classList.remove('hidden');
-        document.getElementById('feedbackInput').value = ''; // Clear input
-    }, 500); // Simulate a network request delay
+    // Send feedback to server
+    fetch('/submitFeedback', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ feedback: feedback }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Feedback submitted successfully!");
+            document.getElementById('feedbackInput').value = ''; // Clear feedback input
+        } else {
+            alert("There was a problem submitting your feedback.");
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 });
