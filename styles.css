@@ -147,45 +147,17 @@ button:hover {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-/* Dark Mode Toggle Styling */
-.dark-mode-toggle {
-    margin-top: 20px;
-    text-align: center;
+/* Default Light Mode */
+body {
+    background-color: white;
+    color: black;
 }
 
-.dark-mode-toggle input[type="checkbox"] {
-    display: none;
-}
-
-.dark-mode-toggle label {
-    cursor: pointer;
-    font-size: 14px;
-    color: #ffb3ff;
-}
-
-.dark-mode-toggle input[type="checkbox"]:checked + label {
-    color: #ff007f; /* Color when toggled */
-}
-
-/* Dark Mode Styles */
+/* Dark Mode */
 body.dark-mode {
-    background: linear-gradient(to right, #121212, #2c2c2c);
-    color: #e0e0e0;
+    background-color: black;
+    color: white;
 }
-
-body.dark-mode .container {
-    background: rgba(50, 50, 50, 0.8);
-}
-
-body.dark-mode .game-option {
-    background: rgba(100, 100, 100, 0.1);
-    border-color: #444;
-}
-
-body.dark-mode .footer {
-    background: rgba(50, 50, 50, 0.7);
-}
-
 /* Smooth Animations */
 .game-option {
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
@@ -194,6 +166,8 @@ body.dark-mode .footer {
 button {
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+
 
 /* Feedback Form Styling */
 .feedback-form {
