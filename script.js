@@ -106,8 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let selectedGame = null;
 
-    Buycoffee.addEventListener('click', () => {
-        window.open('https://t.me/Buycoffeeforima', '_blank');
+    Telegram.addEventListener('click', () => {
+        window.open('https://t.me/HamesterKombatdailyUpdates', '_blank');
     });
     
 gameOptions.forEach(option => {
@@ -345,72 +345,4 @@ gameOptions.forEach(option => {
             document.body.removeChild(textArea);
         }
     };
-});
-
-document.getElementById('darkModeToggle').add
-document.getElementById('darkModeToggle').addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
-    // Save the user's preference to localStorage
-    let darkModeEnabled = document.body.classList.contains('dark-mode');
-    localStorage.setItem('darkMode', darkModeEnabled);
-});
-
-// Check and apply dark mode on page load
-document.addEventListener('DOMContentLoaded', () => {
-    let darkModeEnabled = localStorage.getItem('darkMode') === 'true';
-    if (darkModeEnabled) {
-        document.body.classList.add('dark-mode');
-    }
-});
-
-document.getElementById('submitFeedback').addEventListener('click', function() {
-    let feedback = document.getElementById('feedbackInput').value;
-    
-    // Validate feedback input
-    if (feedback.trim() === "") {
-        alert("Feedback cannot be empty.");
-        return;
-    }
-
-    // Send feedback to server
-    fetch('/submitFeedback', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ feedback: feedback }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert("Feedback submitted successfully!");
-            document.getElementById('feedbackInput').value = ''; // Clear feedback input
-        } else {
-            alert("There was a problem submitting your feedback.");
-        }
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-});
-
-const express = require('express');
-const fs = require('fs');
-const app = express();
-app.use(express.json());
-
-app.post('/submitFeedback', (req, res) => {
-    const feedback = req.body.feedback;
-    
-    // Append feedback to feedback.txt
-    fs.appendFile('Feedback.txt', feedback + '\n', (err) => {
-        if (err) {
-            return res.status(500).json({ success: false });
-        }
-        res.json({ success: true });
-    });
-});
-
-app.listen(3000, () => {
-    console.log('Server running on port 3000');
 });
