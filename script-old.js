@@ -347,26 +347,20 @@ gameOptions.forEach(option => {
     };
 });
 
+document.getElementById('darkModeToggle').add
+document.getElementById('darkModeToggle').addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    // Save the user's preference to localStorage
+    let darkModeEnabled = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', darkModeEnabled);
+});
 
+// Check and apply dark mode on page load
 document.addEventListener('DOMContentLoaded', () => {
-    const darkModeSwitch = document.getElementById('darkModeSwitch');
-    const body = document.body;
-
-    // Load saved preference
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        body.classList.add('dark-mode');
-        darkModeSwitch.checked = true;
+    let darkModeEnabled = localStorage.getItem('darkMode') === 'true';
+    if (darkModeEnabled) {
+        document.body.classList.add('dark-mode');
     }
-
-    darkModeSwitch.addEventListener('change', () => {
-        if (darkModeSwitch.checked) {
-            body.classList.add('dark-mode');
-            localStorage.setItem('darkMode', 'enabled');
-        } else {
-            body.classList.remove('dark-mode');
-            localStorage.setItem('darkMode', 'disabled');
-        }
-    });
 });
 
 document.getElementById('submitFeedback').addEventListener('click', function() {
