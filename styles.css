@@ -228,66 +228,61 @@ button:hover {
 
 /* Enhanced Disclaimer Styling */
 .disclaimer {
-    font-size: 14px; /* Adjusted font size */
-    color: #ffb3b3; /* Light pink text */
-    margin-top: 15px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
-    border-radius: 5px;
+    font-size: 15px; /* Slightly larger for better readability */
+    color: #ffc1c1; /* Softer pink text */
+    margin-top: 20px;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.85); /* Darker transparent background */
+    border-radius: 10px; /* Increased border-radius for a smoother look */
     text-align: center;
-    font-weight: 500;
-    text-shadow: 1px 1px 2px #000;
+    font-weight: 600; /* Bolder font weight */
+    text-shadow: 1px 1px 4px #000; /* Stronger text shadow */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Soft outer glow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Added transition effects */
 }
 
-/* Disclaimer Styling */
-.disclaimer {
-    font-size: 14px; /* Adjusted font size */
-    color: #ffb3b3; /* Light pink text */
-    margin-top: 25px; /* Increased margin for better separation */
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
-    border-radius: 5px;
-    text-align: center;
-    font-weight: 500;
-    text-shadow: 1px 1px 2px #000;
+.disclaimer:hover {
+    transform: scale(1.02); /* Slightly scale up on hover */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Stronger glow on hover */
 }
 
 .disclaimer::after {
     content: "If you have any issues, contact the creator of the bot @Imarop first on Telegram.";
     display: block;
-    margin-top: 10px;
-    color: #ffb3ff;
-    font-size: 13px; /* Slightly smaller text */
+    margin-top: 12px;
+    color: #ff99ff; /* Softer pink */
+    font-size: 14px;
     font-weight: 400;
-    text-shadow: 1px 1px 2px #000;
-    padding-top: 5px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for separation */
+    text-shadow: 1px 1px 3px #000; /* Softer shadow */
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Slightly more defined border */
 }
 
 /* Creator Section Styling with Clickable Link */
 .creator-section {
-    margin-top: 30px; /* Increased margin for better separation */
+    margin-top: 30px;
     padding: 15px;
-    background: linear-gradient(90deg, #808080, #ff0000, #0000ff);
-    background-size: 300% 300%;
+    background: linear-gradient(135deg, #ff6666, #ff3333, #8000ff); /* Vibrant gradient */
+    background-size: 400% 400%; /* Larger background size for smoother gradient shift */
     color: #fff;
     text-align: center;
-    border-radius: 10px;
-    font-weight: 600;
-    text-shadow: 2px 2px 4px #000;
-    animation: gradientShift 5s ease infinite;
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 12px; /* Slightly rounded corners */
+    font-weight: 700; /* Bolder text */
+    text-shadow: 2px 2px 5px #000; /* Stronger text shadow */
+    animation: gradientShift 4s ease infinite; /* Faster gradient shift */
+    transition: transform 0.3s, box-shadow 0.3s; /* Added transitions */
     cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Enhanced box shadow */
 }
 
 .creator-section:hover {
-    transform: scale(1.05); /* Slightly increase size on hover */
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Add glow on hover */
+    transform: scale(1.08); /* More noticeable scale on hover */
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5); /* Stronger glow on hover */
 }
 
 .creator-section a {
     color: inherit; /* Maintain text color */
-    text-decoration: none; /* Remove underline from link */
+    text-decoration: none;
     display: block;
     width: 100%;
     height: 100%;
