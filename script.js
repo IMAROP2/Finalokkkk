@@ -53,14 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             timing: 20000, // 20 seconds
             attempts: 20,
         },
-        8: {
-            name: 'Gangs Wars',
-            appToken: 'b6de60a0-e030-48bb-a551-548372493523',
-            promoId: 'c7821fa7-6632-482c-9635-2bd5798585f9',
-            timing: 40000, // 40 seconds
-            attempts: 30,
-        }
-    };
+        
 
     const gameOptions = document.querySelectorAll('.game-option');
     const keyCountGroup = document.getElementById('keyCountGroup');
