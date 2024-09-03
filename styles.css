@@ -8,8 +8,9 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
+    padding: 20px; /* Added padding to avoid content being too close to the edges */
+    box-sizing: border-box; /* Ensure padding is included in the width and height */
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Container Styling */
@@ -18,40 +19,37 @@ body {
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
     padding: 20px;
-    max-width: 90%;
+    max-width: 100%;
     width: 100%;
-    max-width: 500px; /* Increased max-width for more content */
+    max-width: 500px; /* Increased max-width for better content fit */
     text-align: center;
     position: relative;
-    overflow: hidden;
-    margin-top: 50px;
-    box-sizing: border-box;
+    overflow: hidden; /* Hide overflow for effects */
 }
 
 /* Heading Styling */
 h1 {
     margin-bottom: 20px;
     font-size: 24px; /* Adjusted font size */
-    color: #ffb3ff;
+    color: #ffb3ff; /* Light pink text */
     text-shadow: 2px 2px 4px #000;
 }
 
 /* Grid Container */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
-    gap: 10px;
-    margin-bottom: 15px;
-    max-height: 300px; /* Adjusted max-height */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid with minimum column width */
+    gap: 15px; /* Increased gap */
+    margin-bottom: 20px; /* Increased margin */
+    max-height: 300px; /* Increased max-height */
     overflow-y: auto;
-    padding-right: 5px;
 }
 
 /* Game Option Styling */
 .game-option {
     border: 2px solid transparent;
     border-radius: 10px;
-    padding: 10px;
+    padding: 15px; /* Increased padding */
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
@@ -59,7 +57,6 @@ h1 {
     position: relative;
     overflow: hidden;
     color: #fff;
-    font-size: 14px;
 }
 
 /* Glitter Effect - Differentiated for each game */
@@ -77,7 +74,7 @@ h1 {
 /* Hover and Selection Effects */
 .game-option:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
 .game-option.selected::after {
@@ -103,7 +100,7 @@ h1 {
 .game-option img {
     width: 100%;
     border-radius: 8px;
-    margin-bottom: 5px;
+    margin-bottom: 10px; /* Increased margin */
     transition: filter 0.3s;
 }
 
@@ -114,7 +111,7 @@ h1 {
 /* Labels and Text */
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px; /* Increased margin */
     font-weight: 500;
     color: #ffb3ff;
 }
@@ -128,7 +125,7 @@ p {
 .key-slider input[type="range"] {
     -webkit-appearance: none;
     width: 100%;
-    height: 6px;
+    height: 8px; /* Increased height */
     border-radius: 5px;
     background: linear-gradient(90deg, #ff007f, #ff8c00);
     outline: none;
@@ -138,8 +135,8 @@ p {
 .key-slider input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 20px; /* Increased width */
+    height: 20px; /* Increased height */
     border-radius: 50%;
     background: #ff007f;
     cursor: pointer;
@@ -155,8 +152,8 @@ button {
     background-color: #ff007f;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 14px;
+    padding: 12px 24px; /* Increased padding */
+    font-size: 16px; /* Increased font size */
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
@@ -174,8 +171,8 @@ button:hover {
     border: 4px solid rgba(255, 255, 255, 0.2);
     border-top: 4px solid #ff007f;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 40px; /* Increased width */
+    height: 40px; /* Increased height */
     animation: loading 1s linear infinite;
     margin: 20px auto;
 }
@@ -188,31 +185,30 @@ button:hover {
 /* Footer */
 .footer {
     margin-top: 20px;
-    font-size: 12px;
+    font-size: 14px; /* Increased font size */
     color: #ffb3ff;
     text-shadow: 2px 2px 4px #000;
 }
 
 /* Copy Status Message */
 #copyStatus {
-    margin-top: 10px;
+    margin-top: 15px;
     color: #28a745;
     font-weight: bold;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     visibility: hidden;
 }
 
-/* Show Copy Status Message only when keys are copied */
 .keys-copied #copyStatus {
     visibility: visible;
 }
 
 /* Enhanced Disclaimer Styling */
 .disclaimer {
-    font-size: 15px;
-    color: #ffc1c1;
+    font-size: 16px; /* Larger font size */
+    color: #ffc1c1; /* Softer pink text */
     margin-top: 20px;
-    padding: 12px;
+    padding: 15px;
     background-color: rgba(0, 0, 0, 0.85);
     border-radius: 10px;
     text-align: center;
@@ -239,39 +235,41 @@ button:hover {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Creator Section Styling with Clickable Link */
+/* Creator Section Styling with Clickable Link (continued) */
 .creator-section {
     margin-top: 30px;
     padding: 15px;
-    background: linear-gradient(135deg, #ff6666, #ff3333, #8000ff); /* Vibrant gradient */
-    background-size: 400% 400%; /* Larger background size for smoother gradient shift */
+    background: linear-gradient(135deg, #ff6666, #ff3333, #8000ff);
+    background-size: 400% 400%;
     color: #fff;
     text-align: center;
-    border-radius: 12px; /* Slightly rounded corners */
-    font-weight: 700; /* Bolder text */
-    text-shadow: 2px 2px 5px #000; /* Stronger text shadow */
-    animation: gradientShift 4s ease infinite; /* Faster gradient shift */
-    transition: transform 0.3s, box-shadow 0.3s; /* Added transitions */
+    border-radius: 12px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px #000;
+    animation: gradientShift 4s ease infinite;
+    transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Enhanced box shadow */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .creator-section:hover {
-    transform: scale(1.08); /* More noticeable scale on hover */
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5); /* Stronger glow on hover */
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
 }
 
 .creator-section a {
-    color: inherit; /* Maintain text color */
+    color: #ffff00; /* Bright yellow link color */
     text-decoration: none;
-    display: block;
-    width: 100%;
-    height: 100%;
+    font-weight: bold;
 }
 
-/* Keyframes for moving gradient background */
+.creator-section a:hover {
+    text-decoration: underline;
+}
+
+/* Gradient Shift Animation */
 @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
 }
