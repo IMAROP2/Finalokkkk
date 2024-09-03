@@ -1,210 +1,150 @@
 /* Global Styling */
+
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to right, #1f1c2c, #928dab); /* Dark gradient background */
-    color: #fff;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
+    color: #333;
 }
 
-/* Container Styling */
 .container {
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    background-color: #fff;
     padding: 20px;
-    width: 100%;
-    max-width: 350px; /* Adjusted max-width for your game selection */
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    margin-top: 50px;
-    box-sizing: border-box;
-}
-
-/* Heading Styling */
-h1 {
-    margin-bottom: 20px;
-    font-size: 22px;
-    color: #ffb3ff;
-    text-shadow: 2px 2px 4px #000;
-}
-
-/* Grid Container */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 games per row */
-    gap: 10px;
-    margin-bottom: 15px;
-    max-height: 200px; /* Adjusted max-height */
-    overflow-y: auto;
-    padding-right: 5px;
-}
-
-/* Game Option Styling */
-.game-option {
-    border: 2px solid transparent;
     border-radius: 10px;
-    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    background: rgba(255, 255, 255, 0.1);
-    position: relative;
-    overflow: hidden;
-    color: #fff;
-    font-size: 14px;
-}
-
-/* Glitter Effect - Differentiated for each game */
-.game-option.selected {
-    border-color: #ff007f;
-    animation: glitter 2s infinite;
-    background: linear-gradient(45deg, #ff007f, #ff8c00);
-}
-
-@keyframes glitter {
-    0%, 100% { box-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f; }
-    50% { box-shadow: 0 0 20px #ff8c00, 0 0 40px #ff8c00; }
-}
-
-/* Hover and Selection Effects */
-.game-option:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-}
-
-.game-option.selected::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: rotate(45deg);
-    pointer-events: none;
-    animation: moveLight 3s infinite;
-}
-
-@keyframes moveLight {
-    0% { left: -100%; top: -100%; }
-    50% { left: 100%; top: 100%; }
-    100% { left: -100%; top: -100%; }
-}
-
-/* Game Option Images */
-.game-option img {
+    max-width: 400px;
     width: 100%;
+}
+
+h1 {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.game-option {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
     border-radius: 8px;
-    margin-bottom: 5px;
-    transition: filter 0.3s;
-}
-
-.game-option:hover img {
-    filter: brightness(1.2);
-}
-
-/* Labels and Text */
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 500;
-    color: #ffb3ff;
-}
-
-p {
-    font-weight: 500;
-    color: #fff;
-}
-
-/* Key Slider */
-.key-slider input[type="range"] {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 6px;
-    border-radius: 5px;
-    background: linear-gradient(90deg, #ff007f, #ff8c00);
-    outline: none;
-    transition: background 0.3s;
-}
-
-.key-slider input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #ff007f;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
     cursor: pointer;
-    transition: background 0.3s;
+    text-align: center;
 }
 
-.key-slider input[type="range"]:hover::-webkit-slider-thumb {
-    background: #ff8c00;
+.game-option img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
 }
 
-/* Buttons */
+.game-option p {
+    font-weight: 500;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.game-option:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-5px);
+}
+
+.form-group {
+    margin: 20px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.key-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#keyRange {
+    width: 80%;
+    margin-right: 10px;
+}
+
+#keyValue {
+    font-weight: 700;
+    font-size: 16px;
+}
+
 button {
-    background-color: #ff007f;
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 10px 20px;
-    font-size: 14px;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #ff8c00;
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+    background-color: #0056b3;
 }
 
-/* Loading Spinner */
-.loading-spinner {
-    border: 4px solid rgba(255, 255, 255, 0.2);
-    border-top: 4px solid #ff007f;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: loading 1s linear infinite;
-    margin: 20px auto;
-}
-
-@keyframes loading {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Footer */
-.footer {
+#progressContainer {
     margin-top: 20px;
-    font-size: 12px;
-    color: #ffb3ff;
-    text-shadow: 2px 2px 4px #000;
 }
 
-/* Copy Status Message */
-#copyStatus {
+.progress-bar {
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+#progressBar {
+    background-color: #007bff;
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s;
+}
+
+#progressText, #progressLog {
+    font-size: 14px;
+    color: #555;
+}
+
+#copyAllBtn {
     margin-top: 10px;
-    color: #28a745;
-    font-weight: bold;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    visibility: hidden; /* Initially hidden */
 }
 
-/* Show Copy Status Message only when keys are copied */
-.keys-copied #copyStatus {
-    visibility: visible;
+.footer {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #888;
+    text-align: center;
 }
+
+.footer button {
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.disclaimer {
+    font-size: 10px;
+    color: #777;
+    margin-top: 10px;
+    }
 
 /* Enhanced Disclaimer Styling */
 .disclaimer {
