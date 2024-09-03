@@ -242,26 +242,26 @@ button:hover {
 .creator-section {
     margin-top: 30px;
     padding: 15px;
-    background: linear-gradient(135deg, #ff6666, #ff3333, #8000ff);
-    background-size: 400% 400%;
+    background: linear-gradient(135deg, #ff6666, #ff3333, #8000ff); /* Vibrant gradient */
+    background-size: 400% 400%; /* Larger background size for smoother gradient shift */
     color: #fff;
     text-align: center;
-    border-radius: 12px;
-    font-weight: 700;
-    text-shadow: 2px 2px 5px #000;
-    animation: gradientShift 4s ease infinite;
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 12px; /* Slightly rounded corners */
+    font-weight: 700; /* Bolder text */
+    text-shadow: 2px 2px 5px #000; /* Stronger text shadow */
+    animation: gradientShift 4s ease infinite; /* Faster gradient shift */
+    transition: transform 0.3s, box-shadow 0.3s; /* Added transitions */
     cursor: pointer;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Enhanced box shadow */
 }
 
 .creator-section:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+    transform: scale(1.08); /* More noticeable scale on hover */
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5); /* Stronger glow on hover */
 }
 
 .creator-section a {
-    color: inherit;
+    color: inherit; /* Maintain text color */
     text-decoration: none;
     display: block;
     width: 100%;
@@ -269,3 +269,8 @@ button:hover {
 }
 
 /* Keyframes for moving gradient background */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
