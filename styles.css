@@ -27,20 +27,23 @@ body {
     overflow: hidden; /* Hide overflow for effects */
 }
 
-/* Heading Styling */
+/* Responsive Title Styling */
 h1 {
-    #title {
-    font-size: 48px; /* Large font size */
-    color: #ff99ff; /* Soft pink color */
-    text-align: center; /* Center the title */
-    margin-top: 0; /* No extra margin at the top */
-    margin-bottom: 30px; /* Space below the title */
-    font-weight: bold; /* Bold font */
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); /* Soft shadow */
-    background: linear-gradient(135deg, #ff007f, #ff8c00); /* Gradient text effect */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Fill the text with the gradient */
-    animation: fadeInTitle 2s ease-in-out; /* Animation for a fade-in effect */
+    font-size: 28px; /* Larger font size for better visibility */
+    color: #ffb3ff;
+    text-shadow: 2px 2px 4px #000;
+    margin: 0; /* Removes default margin */
+    padding: 15px 0; /* Adds padding for spacing */
+    word-wrap: break-word; /* Ensures long titles break properly */
+    overflow-wrap: break-word; /* Additional word wrapping for older browsers */
+}
+
+/* Ensure title scales down on smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 22px; /* Slightly smaller font for smaller screens */
+        padding: 10px 0; /* Adjust padding */
+    }
 }
 
 @keyframes fadeInTitle {
