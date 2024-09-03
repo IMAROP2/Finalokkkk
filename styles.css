@@ -29,10 +29,24 @@ body {
 
 /* Heading Styling */
 h1 {
-    margin-bottom: 20px;
-    font-size: 24px; /* Adjusted font size */
-    color: #ffb3ff; /* Light pink text */
-    text-shadow: 2px 2px 4px #000;
+    #title {
+    font-size: 48px; /* Large font size */
+    color: #ff99ff; /* Soft pink color */
+    text-align: center; /* Center the title */
+    margin-top: 0; /* No extra margin at the top */
+    margin-bottom: 30px; /* Space below the title */
+    font-weight: bold; /* Bold font */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); /* Soft shadow */
+    background: linear-gradient(135deg, #ff007f, #ff8c00); /* Gradient text effect */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Fill the text with the gradient */
+    animation: fadeInTitle 2s ease-in-out; /* Animation for a fade-in effect */
+}
+
+@keyframes fadeInTitle {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
 }
 
 /* Grid Container */
