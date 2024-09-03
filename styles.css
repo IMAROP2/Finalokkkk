@@ -8,64 +8,64 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    padding: 20px; /* Added padding to avoid content being too close to the edges */
-    box-sizing: border-box; /* Ensure padding is included in the width and height */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Container Styling */
 .container {
-    background: rgba(0, 0, 0, 0.8); /* Transparent black background */
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-    padding: 20px; /* Reduced padding */
-    max-width: 90%; /* Responsive width */
+    padding: 20px;
     width: 100%;
-    max-width: 400px; /* Adjusted max-width for smaller screens */
+    max-width: 350px; /* Adjusted max-width for your game selection */
     text-align: center;
     position: relative;
-    overflow: hidden; /* Hide overflow for effects */
-    margin-top: 50px; /* Added margin to prevent title from being too close to the top */
+    overflow: hidden;
+    margin-top: 50px;
     box-sizing: border-box;
 }
+
 /* Heading Styling */
 h1 {
-    margin-bottom: 20px; /* Reduced margin */
-    font-size: 22px; /* Adjusted font size */
-    color: #ffb3ff; /* Light pink text */
-    text-shadow: 2px 2px 4px #000; /* Shadow effect */
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #ffb3ff;
+    text-shadow: 2px 2px 4px #000;
 }
 
 /* Grid Container */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
-    gap: 10px; /* Reduced gap */
-    margin-bottom: 15px; /* Reduced margin */
-    max-height: 250px; /* Adjusted max-height */
+    grid-template-columns: repeat(2, 1fr); /* 2 games per row */
+    gap: 10px;
+    margin-bottom: 15px;
+    max-height: 200px; /* Adjusted max-height */
     overflow-y: auto;
-    padding-right: 5px; /* Reduced padding */
+    padding-right: 5px;
 }
 
 /* Game Option Styling */
 .game-option {
     border: 2px solid transparent;
-    border-radius: 10px; /* Adjusted border-radius */
-    padding: 10px; /* Reduced padding */
+    border-radius: 10px;
+    padding: 10px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Adjusted transition */
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     background: rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
     color: #fff;
-    font-size: 14px; /* Adjusted font size */
+    font-size: 14px;
 }
 
 /* Glitter Effect - Differentiated for each game */
 .game-option.selected {
-    border-color: #ff007f; /* Different color for selected */
-    animation: glitter 2s infinite; /* Glitter animation */
-    background: linear-gradient(45deg, #ff007f, #ff8c00); /* Gradient for selected */
+    border-color: #ff007f;
+    animation: glitter 2s infinite;
+    background: linear-gradient(45deg, #ff007f, #ff8c00);
 }
 
 @keyframes glitter {
@@ -75,8 +75,8 @@ h1 {
 
 /* Hover and Selection Effects */
 .game-option:hover {
-    transform: scale(1.05); /* Slightly reduced scale */
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Reduced box-shadow */
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
 .game-option.selected::after {
@@ -102,8 +102,8 @@ h1 {
 .game-option img {
     width: 100%;
     border-radius: 8px;
-    margin-bottom: 5px; /* Reduced margin */
-    transition: filter 0.3s; /* Adjusted transition */
+    margin-bottom: 5px;
+    transition: filter 0.3s;
 }
 
 .game-option:hover img {
@@ -113,7 +113,7 @@ h1 {
 /* Labels and Text */
 label {
     display: block;
-    margin-bottom: 5px; /* Reduced margin */
+    margin-bottom: 5px;
     font-weight: 500;
     color: #ffb3ff;
 }
@@ -127,7 +127,7 @@ p {
 .key-slider input[type="range"] {
     -webkit-appearance: none;
     width: 100%;
-    height: 6px; /* Reduced height */
+    height: 6px;
     border-radius: 5px;
     background: linear-gradient(90deg, #ff007f, #ff8c00);
     outline: none;
@@ -137,8 +137,8 @@ p {
 .key-slider input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px; /* Reduced width */
-    height: 18px; /* Reduced height */
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     background: #ff007f;
     cursor: pointer;
@@ -154,18 +154,18 @@ button {
     background-color: #ff007f;
     color: white;
     border: none;
-    padding: 10px 20px; /* Reduced padding */
-    font-size: 14px; /* Adjusted font size */
-    border-radius: 8px; /* Adjusted border-radius */
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 0 10px rgba(255, 0, 127, 0.5); /* Pink glow */
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
 }
 
 button:hover {
     background-color: #ff8c00;
-    transform: scale(1.05); /* Slightly reduced scale */
-    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5); /* Orange glow */
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
 }
 
 /* Loading Spinner */
@@ -173,10 +173,10 @@ button:hover {
     border: 4px solid rgba(255, 255, 255, 0.2);
     border-top: 4px solid #ff007f;
     border-radius: 50%;
-    width: 30px; /* Reduced width */
-    height: 30px; /* Reduced height */
+    width: 30px;
+    height: 30px;
     animation: loading 1s linear infinite;
-    margin: 20px auto; /* Reduced margin */
+    margin: 20px auto;
 }
 
 @keyframes loading {
@@ -208,60 +208,60 @@ button:hover {
 
 /* Enhanced Disclaimer Styling */
 .disclaimer {
-    font-size: 15px; /* Slightly larger for better readability */
-    color: #ffc1c1; /* Softer pink text */
+    font-size: 15px;
+    color: #ffc1c1;
     margin-top: 20px;
     padding: 12px;
-    background-color: rgba(0, 0, 0, 0.85); /* Darker transparent background */
-    border-radius: 10px; /* Increased border-radius for a smoother look */
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 10px;
     text-align: center;
-    font-weight: 600; /* Bolder font weight */
-    text-shadow: 1px 1px 4px #000; /* Stronger text shadow */
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Soft outer glow */
-    transition: transform 0.3s, box-shadow 0.3s; /* Added transition effects */
+    font-weight: 600;
+    text-shadow: 1px 1px 4px #000;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .disclaimer:hover {
-    transform: scale(1.02); /* Slightly scale up on hover */
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Stronger glow on hover */
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .disclaimer::after {
     content: "If you have any issues, contact the creator of the bot @Imarop first on Telegram.";
     display: block;
     margin-top: 12px;
-    color: #ff99ff; /* Softer pink */
+    color: #ff99ff;
     font-size: 14px;
     font-weight: 400;
-    text-shadow: 1px 1px 3px #000; /* Softer shadow */
+    text-shadow: 1px 1px 3px #000;
     padding-top: 8px;
-    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Slightly more defined border */
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Creator Section Styling with Clickable Link */
 .creator-section {
     margin-top: 30px;
     padding: 15px;
-    background: linear-gradient(135deg, #ff6666, #ff3333, #8000ff); /* Vibrant gradient */
-    background-size: 400% 400%; /* Larger background size for smoother gradient shift */
+    background: linear-gradient(135deg, #ff6666, #ff3333, #8000ff);
+    background-size: 400% 400%;
     color: #fff;
     text-align: center;
-    border-radius: 12px; /* Slightly rounded corners */
-    font-weight: 700; /* Bolder text */
-    text-shadow: 2px 2px 5px #000; /* Stronger text shadow */
-    animation: gradientShift 4s ease infinite; /* Faster gradient shift */
-    transition: transform 0.3s, box-shadow 0.3s; /* Added transitions */
+    border-radius: 12px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px #000;
+    animation: gradientShift 4s ease infinite;
+    transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Enhanced box shadow */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .creator-section:hover {
-    transform: scale(1.08); /* More noticeable scale on hover */
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5); /* Stronger glow on hover */
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
 }
 
 .creator-section a {
-    color: inherit; /* Maintain text color */
+    color: inherit;
     text-decoration: none;
     display: block;
     width: 100%;
@@ -269,8 +269,3 @@ button:hover {
 }
 
 /* Keyframes for moving gradient background */
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-        }
