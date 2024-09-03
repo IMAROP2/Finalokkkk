@@ -16,8 +16,11 @@
         <h1>Hamster Key Generator</h1>
         
         <!-- Google AdSense Ad Unit -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8159641272559677"
-     crossorigin="anonymous"></script>
+        <div class="adsbygoogle">
+            <!-- Insert AdSense ad unit code here -->
+        </div>
+        
+        <div class="grid-container">
             <div class="game-option" data-game="7">
                 <img src="https://cdn.hamsterkombat.io/zoopolis/image.webp" alt="Zoopolis">
                 <p>Zoopolis</p>
@@ -49,9 +52,9 @@
         </div>
 
         <div class="form-group hidden" id="keyCountGroup">
-            <label for="keyCountSelect">Select Number of Keys:</label>
-            <div id="keyCountSelect" class="key-slider">
-                <input type="range" min="1" max="5" value="1" id="keyRange">
+            <label for="keyRange">Select Number of Keys:</label>
+            <div class="key-slider">
+                <input type="range" min="1" max="4" value="1" id="keyRange">
                 <span id="keyValue">1</span>
             </div>
         </div>
@@ -66,23 +69,22 @@
         </div>
 
         <div id="keyContainer" class="hidden">
-            <h2 id="generatedKeysTitle" class="hidden">Generated Keys</h2>
+            <h2 id="generatedKeysTitle">Generated Keys</h2>
             <div id="keysList"></div>
-            <button id="copyAllBtn" class="hidden">Copy All Keys</button>
+            <button id="copyAllBtn">Copy All Keys</button>
         </div>
 
-        <p id="keyCountLabel">Number of keys:</p>
-       
-        <p id="copyStatus" class="hidden">Keys copied to clipboard!</p>
+        <p id="copyStatus">Keys copied to clipboard!</p>
         
         <div class="footer">
             <p>A powerful promo codes generator by @Imarop</p>
-            <button id="Telegram">Channel</button>
+            <button id="Telegram" onclick="window.location.href='https://t.me/Hamesterkombat'">Channel</button>
             <button id="Group" onclick="window.location.href='https://t.me/Hamesterkombatkeys'">Group</button>
             <p class="disclaimer">⚠️ This tool is intended for educational purposes only. Please use it responsibly. 🔐</p>
-            
-    </div>
-
+            <div class="creator-section">
+                <a href="https://t.me/Imarop" target="_blank">Contact the creator</a>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
