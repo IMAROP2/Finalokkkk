@@ -157,7 +157,7 @@ gameOptions.forEach(option => {
                 updateProgress(100 / keyCount, 'Generating key...');
                 return key;
             } catch (error) {
-                alert(`Failed to generate key: ${error.message}`);
+                alert(`Failed to generate key: Try to generate codes for valid games available in hamester${error.message}`);
                 return null;
             }
         };
