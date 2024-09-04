@@ -129,33 +129,31 @@ gameOptions.forEach(option => {
     });
 
     startBtn.addEventListener('click', async () => {
-    console.log('Generate button clicked');
+        const keyCount = parseInt(keyRange.value);
+        if (!selectedGame) {
+            alert('Please select a game first.');
+            return;
+        }
 
-    const keyCount = parseInt(keyRange.value);
-    if (!selectedGame) {
-        alert('Please select a game first.');
-        return;
-    }
+        const gameChoice = parseInt(selectedGame);
+        const game = games[gameChoice];
 
-    const gameChoice = parseInt(selectedGame);
-    const game = games[gameChoice];
-    
-    // Hide the form sections
-    document.querySelector('.grid-container').style.display = 'none';
-    keyCountGroup.style.display = 'none';
+        // Hide the form sections
+        document.querySelector('.grid-container').style.display = 'none';
+        keyCountGroup.style.display = 'none';
 
-    keyCountLabel.innerText = `Number of keys: ${keyCount}`;
+        keyCountLabel.innerText = `Number of keys: ${keyCount}`;
 
-    progressBar.style.width = '0%';
-    progressText.innerText = '0%';
-    progressLog.innerText = 'Starting...';
-    progressContainer.classList.remove('hidden');
-    keyContainer.classList.add('hidden');
-    generatedKeysTitle.classList.add('hidden');
-    keysList.innerHTML = '';
-    copyAllBtn.classList.add('hidden');
-    startBtn.classList.add('hidden');
-    startBtn.disabled = true;
+        progressBar.style.width = '0%';
+        progressText.innerText = '0%';
+        progressLog.innerText = 'Starting...';
+        progressContainer.classList.remove('hidden');
+        keyContainer.classList.add('hidden');
+        generatedKeysTitle.classList.add('hidden');
+        keysList.innerHTML = '';
+        copyAllBtn.classList.add('hidden');
+        startBtn.classList.add('hidden');
+        startBtn.disabled = true;
 
     let progress = 0;
     const updateProgress = (increment, message) => {
