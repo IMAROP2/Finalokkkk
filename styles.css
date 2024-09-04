@@ -20,7 +20,7 @@ body {
     padding: 20px;
     max-width: 90%;
     width: 100%;
-    max-width: 400px;
+    max-width: 600px; /* Increased max-width for better fit */
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -36,8 +36,6 @@ h1 {
     text-shadow: 2px 2px 4px #000;
 }
 
-
-
 /* Glitter Effect */
 .game-option.selected {
     border-color: #ff007f;
@@ -51,34 +49,21 @@ h1 {
 }
 
 /* Game Grid Container */
-
-
-.game-option p {
-    font-size: 14px; /* Adjust the text size */
-    text-align: center;
-    color: #333;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: rotate(45deg);
-    pointer-events: none;
-/* Game Grid Container */
 .game-grid {
     display: flex; /* Align items horizontally */
     flex-wrap: nowrap; /* Prevent wrapping to a new line */
     overflow-x: auto; /* Enable horizontal scrolling */
     gap: 10px; /* Space between game options */
-    padding-bottom: 10px; /* Add some padding to the bottom */
+    padding: 10px 0; /* Add some padding to the top and bottom */
     margin-bottom: 15px; /* Space below the grid */
     max-width: 100%; /* Ensure it doesn't exceed the container width */
+    align-items: center; /* Center items vertically */
 }
 
 /* Game Option Styling */
 .game-option {
     flex: 0 0 auto; /* Keep each game option at its own size */
-    width: 100px; /* Set a specific width for each option */
+    width: 120px; /* Adjusted width for better fit */
     border: 2px solid transparent;
     border-radius: 10px;
     padding: 10px;
@@ -89,13 +74,6 @@ h1 {
     color: #fff;
     font-size: 14px;
     overflow: hidden;
-}    animation: moveLight 3s infinite;
-}
-
-@keyframes moveLight {
-    0% { left: -100%; top: -100%; }
-    50% { left: 100%; top: 100%; }
-    100% { left: -100%; top: -100%; }
 }
 
 /* Game Option Images */
@@ -257,6 +235,7 @@ button:hover {
 .creator-section a:hover {
     text-decoration: underline;
 }
+
 /* Gradient Shift Animation */
 @keyframes gradientShift {
     0% { background-position: 0% 0%; }
