@@ -52,34 +52,41 @@ h1 {
 
 /* Game Grid Container */
 .game-grid {
-    display: flex; /* Align items horizontally */
-    flex-wrap: nowrap; /* Prevent wrapping to a new line */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    gap: 10px; /* Space between game options */
-    padding-bottom: 10px; /* Add some padding to the bottom */
-    margin-bottom: 15px; /* Space below the grid */
-    max-width: 100%; /* Ensure it doesn't exceed the container width */
-}
 
-/* Game Option Styling */
-.game-option {
-    flex: 0 0 auto; /* Keep each game option at its own size */
-    width: 100px; /* Set a specific width for each option */
-    border: 2px solid transparent;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    font-size: 14px;
-    overflow: hidden;
-}
 
 .game-option.selected::after {
     content: '';
     position: absolute;
+/* Apply this style to make the game options align horizontally */
+#gameSelectContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Adjust the spacing between the game options */
+}
+
+.game-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px; /* Adjust the width of each game option */
+    margin-bottom: 20px; /* Add some space at the bottom for better alignment */
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.game-option img {
+    width: 100px; /* Adjust the size of the game images */
+    height: 100px; /* Maintain the aspect ratio */
+    object-fit: cover;
+    border-radius: 10px; /* Add rounded corners */
+    margin-bottom: 10px;
+}
+
+.game-option p {
+    font-size: 14px; /* Adjust the text size */
+    text-align: center;
+    color: #333;
     top: -50%;
     left: -50%;
     width: 200%;
