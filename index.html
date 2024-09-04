@@ -3,28 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamster Key Generator (by Imarop)</title>
+    <title>Hamster Key Generator</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Google AdSense Script -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8159641272559677" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
         <h1>Hamster Key Generator</h1>
-        <div class="game-grid">
+        <div id="gameSelectContainer" class="grid-container">
+            <div class="game-option" data-game="12">
+            <img src="https://cdn.hamsterkombat.io/fluff/image.webp" alt="Fluff"">
+            <p>Fluff Crusade</p>
+            </div>
             <div class="game-option" data-game="11">
-                <img src="https://cdn.hamsterkombat.io/zoopolis/image.webp" alt="Zoopolis">
-                <p>Zoopolis</p>
+            <img src="https://cdn.hamsterkombat.io/zoopolis/image.webp" alt="Zoopolis"">
+            <p>Zoopolis</p>
+            </div>
+            <div class="game-option" data-game="10">
+            <img src="https://cdn.hamsterkombat.io/tile_trio/image.webp" alt="CafeDash"">
+            <p>Tile Trio</p>
             </div>
             <div class="game-option" data-game="8">
-                <img src="https://cdn.hamsterkombat.io/mow_trim/image.webp" alt="Mow and Trim">
-                <p>Mow and Trim</p>
+            <img src="https://cdn.hamsterkombat.io/mow_trim/image.webp" alt="Polysphere">
+            <p>Mow and Trim</p>
             </div>
             <div class="game-option" data-game="7">
-                <img src="https://cdn.hamsterkombat.io/polysphere/image.webp" alt="Polysphere">
-                <p>Polysphere</p>
+            <img src="https://cdn.hamsterkombat.io/polysphere/image.webp" alt="Polysphere">
+            <p>Polysphere</p>
             </div>
             <div class="game-option" data-game="6">
                 <img src="https://cdn.hamsterkombat.io/twerk/image.webp" alt="Twerk Race 3D">
@@ -44,10 +49,10 @@
             </div>
         </div>
 
-                                <div class="form-group hidden" id="keyCountGroup">
+        <div class="form-group hidden" id="keyCountGroup">
             <label for="keyCountSelect">Select Number of Keys:</label>
             <div id="keyCountSelect" class="key-slider">
-                <input type="range" min="1" max="5" value="1" id="keyRange">
+                <input type="range" min="1" max="4" value="1" id="keyRange">
                 <span id="keyValue">1</span>
             </div>
         </div>
@@ -68,17 +73,13 @@
         </div>
 
         <p id="keyCountLabel">Number of keys:</p>
-       
+
+        <button id="generateMoreBtn" class="hidden">Generate More Keys</button>
         <p id="copyStatus" class="hidden">Keys copied to clipboard!</p>
         
         <div class="footer">
-            <p>A powerful promo codes generator by @Imarop</p>
-            <button id="Telegram" onclick="window.location.href='https://t.me/HamesterKombatdailyUpdates'">Channel</button>
-            <button id="Group" onclick="window.location.href='https://t.me/Hamesterkombatkeys'">Group</button>
-            <p class="disclaimer">⚠️ This tool is intended for educational purposes only. Please use it responsibly. 🔐</p>
-            <div class="creator-section">
-                <a href="https://t.me/Imarop" target="_blank">Contact the creator</a>
-            </div>
+            <p>Disclaimer: This tool is for educational purposes only. Use responsibly.</p>
+            <button id="sourceCode">Source code</button>
         </div>
     </div>
 
