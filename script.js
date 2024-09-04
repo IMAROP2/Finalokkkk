@@ -153,7 +153,7 @@ gameOptions.forEach(option => {
         keysList.innerHTML = '';
         copyAllBtn.classList.add('hidden');
         startBtn.classList.add('hidden');
-        startBtn.disabled = true;
+        startBtn.disabled = false;
 
         let progress = 0;
         const updateProgress = (increment, message) => {
