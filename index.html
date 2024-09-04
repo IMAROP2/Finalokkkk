@@ -13,6 +13,30 @@
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
+    <style>
+        #gameSelectContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px; /* Adjust the spacing between game options */
+        }
+        
+        .game-option {
+            flex: 0 1 calc(33.333% - 10px); /* Make each game option take up about a third of the row */
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .game-option img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .game-option p {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -28,7 +52,7 @@
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
 
-        <div id="gameSelectContainer" class="vertical-container">
+        <div id="gameSelectContainer">
             <div class="game-option" data-game="12">
                 <img src="https://cdn.hamsterkombat.io/fluff/image.webp" alt="Fluff">
                 <p>Fluff Crusade</p>
