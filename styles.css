@@ -50,21 +50,21 @@ h1 {
     50% { box-shadow: 0 0 20px #ff8c00, 0 0 40px #ff8c00; }
 }
 
-/* Hover and Selection Effects */
-.game-option:h/* Game Grid Container */
+/* Game Grid Container */
 .game-grid {
-    display: flex; /* Changed to flexbox for horizontal layout */
-    flex-wrap: nowrap; /* Prevent wrapping to keep all items in a single row */
-    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    display: flex; /* Switch from grid to flexbox layout */
+    flex-wrap: nowrap; /* Prevent wrapping, so all items stay in a single row */
+    overflow-x: auto; /* Enable horizontal scrolling */
     gap: 10px; /* Space between game options */
-    padding: 10px 0; /* Padding to add space around the game grid */
-    max-width: 100%;
+    padding: 10px 0; /* Add padding to top and bottom */
+    max-width: 100%; /* Ensure the grid does not exceed the container width */
+    margin-bottom: 15px; /* Space below the grid */
 }
 
 /* Game Option Styling */
 .game-option {
-    flex: 0 0 auto; /* Prevent flex items from stretching */
-    width: 100px; /* Set a fixed width for each game option */
+    flex: 0 0 auto; /* Keep each game option fixed in size */
+    width: 100px; /* Set the width for each game option */
     border: 2px solid transparent;
     border-radius: 10px;
     padding: 10px;
@@ -76,9 +76,7 @@ h1 {
     overflow: hidden;
     color: #fff;
     font-size: 14px;
-}
-
-/* Rest of your styling remains the same */over {
+}over {
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
