@@ -13,28 +13,55 @@
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
+
     <style>
-        #gameSelectContainer {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px; /* Adjust the spacing between game options */
-        }
-        
-        .game-option {
-            flex: 0 1 calc(33.333% - 10px); /* Make each game option take up about a third of the row */
-            box-sizing: border-box;
+        .container {
+            padding: 20px;
             text-align: center;
         }
 
+        #gameSelectContainer {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            margin-bottom: 20px;
+        }
+
+        .game-option {
+            display: inline-block;
+            width: 120px;
+            text-align: center;
+            margin: 10px;
+            flex-shrink: 0;
+        }
+
         .game-option img {
-            max-width: 100%;
-            height: auto;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
         }
 
         .game-option p {
             margin-top: 10px;
-            font-size: 1rem;
+            font-size: 14px;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 600px) {
+            .game-option {
+                width: 80px;
+            }
+
+            .game-option img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .game-option p {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -62,7 +89,7 @@
                 <p>Zoopolis</p>
             </div>
             <div class="game-option" data-game="10">
-                <img src="https://cdn.hamsterkombat.io/tile_trio/image.webp" alt="CafeDash">
+                <img src="https://cdn.hamsterkombat.io/tile_trio/image.webp" alt="Tile Trio">
                 <p>Tile Trio</p>
             </div>
             <div class="game-option" data-game="9">
