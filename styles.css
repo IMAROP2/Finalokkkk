@@ -17,30 +17,60 @@ body {
     background: rgba(0, 0, 0, 0.8); /* Transparent black background */
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    max-width: 90%;
+    padding: 20px; /* Reduced padding */
+    max-width: 90%; /* Responsive width */
     width: 100%;
-    max-width: 600px; /* Increased max-width for better fit */
+    max-width: 400px; /* Adjusted max-width for smaller screens */
     text-align: center;
     position: relative;
-    overflow: hidden;
-    margin-top: 50px;
+    overflow: hidden; /* Hide overflow for effects */
+    margin-top: 50px; /* Added margin to prevent title from being too close to the top */
     box-sizing: border-box;
 }
-
+/* Adjust spacing for the title */
+.main-title {
+    margin-top: 50px; /* Adjust this value as needed */
+    text-align: center; /* Optional: Centers the title */
+}
 /* Heading Styling */
 h1 {
-    margin-bottom: 20px;
-    font-size: 22px;
-    color: #ffb3ff;
-    text-shadow: 2px 2px 4px #000;
+    margin-bottom: 20px; /* Reduced margin */
+    font-size: 22px; /* Adjusted font size */
+    color: #ffb3ff; /* Light pink text */
+    text-shadow: 2px 2px 4px #000; /* Shadow effect */
 }
 
-/* Glitter Effect */
+/* Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
+    gap: 10px; /* Reduced gap */
+    margin-bottom: 15px; /* Reduced margin */
+    max-height: 250px; /* Adjusted max-height */
+    overflow-y: auto;
+    padding-right: 5px; /* Reduced padding */
+}
+
+/* Game Option Styling */
+.game-option {
+    border: 2px solid transparent;
+    border-radius: 10px; /* Adjusted border-radius */
+    padding: 10px; /* Reduced padding */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Adjusted transition */
+    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    font-size: 14px; /* Adjusted font size */
+}
+
+/* Glitter Effect - Differentiated for each game */
 .game-option.selected {
-    border-color: #ff007f;
-    animation: glitter 2s infinite;
-    background: linear-gradient(45deg, #ff007f, #ff8c00);
+    border-color: #ff007f; /* Different color for selected */
+    animation: glitter 2s infinite; /* Glitter animation */
+    background: linear-gradient(45deg, #ff007f, #ff8c00); /* Gradient for selected */
 }
 
 @keyframes glitter {
@@ -48,40 +78,37 @@ h1 {
     50% { box-shadow: 0 0 20px #ff8c00, 0 0 40px #ff8c00; }
 }
 
-/* Game Grid Container */
-.game-grid {
-    display: flex; /* Align items horizontally */
-    flex-wrap: nowrap; /* Prevent wrapping to a new line */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    gap: 10px; /* Space between game options */
-    padding: 10px 0; /* Add some padding to the top and bottom */
-    margin-bottom: 15px; /* Space below the grid */
-    max-width: 100%; /* Ensure it doesn't exceed the container width */
-    align-items: center; /* Center items vertically */
+/* Hover and Selection Effects */
+.game-option:hover {
+    transform: scale(1.05); /* Slightly reduced scale */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Reduced box-shadow */
 }
 
-/* Game Option Styling */
-.game-option {
-    flex: 0 0 auto; /* Keep each game option at its own size */
-    width: 120px; /* Adjusted width for better fit */
-    border: 2px solid transparent;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    font-size: 14px;
-    overflow: hidden;
+.game-option.selected::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(45deg);
+    pointer-events: none;
+    animation: moveLight 3s infinite;
+}
+
+@keyframes moveLight {
+    0% { left: -100%; top: -100%; }
+    50% { left: 100%; top: 100%; }
+    100% { left: -100%; top: -100%; }
 }
 
 /* Game Option Images */
 .game-option img {
     width: 100%;
     border-radius: 8px;
-    margin-bottom: 5px;
-    transition: filter 0.3s;
+    margin-bottom: 5px; /* Reduced margin */
+    transition: filter 0.3s; /* Adjusted transition */
 }
 
 .game-option:hover img {
@@ -91,7 +118,7 @@ h1 {
 /* Labels and Text */
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 5px; /* Reduced margin */
     font-weight: 500;
     color: #ffb3ff;
 }
@@ -105,7 +132,7 @@ p {
 .key-slider input[type="range"] {
     -webkit-appearance: none;
     width: 100%;
-    height: 6px;
+    height: 6px; /* Reduced height */
     border-radius: 5px;
     background: linear-gradient(90deg, #ff007f, #ff8c00);
     outline: none;
@@ -115,8 +142,8 @@ p {
 .key-slider input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 18px; /* Reduced width */
+    height: 18px; /* Reduced height */
     border-radius: 50%;
     background: #ff007f;
     cursor: pointer;
@@ -132,23 +159,34 @@ button {
     background-color: #ff007f;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    border-radius: 8px;
+    padding: 10px 20px; /* Reduced padding */
+    font-size: 14px; /* Adjusted font size */
+    border-radius: 8px; /* Adjusted border-radius */
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.5); /* Pink glow */
 }
 
 button:hover {
     background-color: #ff8c00;
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+    transform: scale(1.05); /* Slightly reduced scale */
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5); /* Orange glow */
 }
 
-/* Hidden Elements */
-.hidden {
-    display: none;
+/* Loading Spinner */
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top: 4px solid #ff007f;
+    border-radius: 50%;
+    width: 30px; /* Reduced width */
+    height: 30px; /* Reduced height */
+    animation: loading 1s linear infinite;
+    margin: 20px auto; /* Reduced margin */
+}
+
+@keyframes loading {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* Footer */
@@ -165,17 +203,18 @@ button:hover {
     color: #28a745;
     font-weight: bold;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    visibility: hidden;
+    visibility: hidden; /* Initially hidden */
 }
 
+/* Show Copy Status Message only when keys are copied */
 .keys-copied #copyStatus {
     visibility: visible;
 }
 
 /* Enhanced Disclaimer Styling */
 .disclaimer {
-    font-size: 16px;
-    color: #ffc1c1;
+    font-size: 16px; /* Larger font size */
+    color: #ffc1c1; /* Softer pink text */
     margin-top: 20px;
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.85);
@@ -204,7 +243,7 @@ button:hover {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Creator Section Styling with Clickable Link */
+/* Creator Section Styling with Clickable Link (continued) */
 .creator-section {
     margin-top: 30px;
     padding: 15px;
