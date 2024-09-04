@@ -36,31 +36,7 @@ h1 {
     text-shadow: 2px 2px 4px #000;
 }
 
-/* Game Grid Container */
-.game-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 10px;
-    margin-bottom: 15px;
-    max-height: 250px;
-    overflow-y: auto;
-    padding-right: 5px;
-}
 
-/* Game Option Styling */
-.game-option {
-    border: 2px solid transparent;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    background: rgba(255, 255, 255, 0.1);
-    position: relative;
-    overflow: hidden;
-    color: #fff;
-    font-size: 14px;
-}
 
 /* Glitter Effect */
 .game-option.selected {
@@ -75,7 +51,34 @@ h1 {
 }
 
 /* Hover and Selection Effects */
-.game-option:hover {
+.game-option:h/* Game Grid Container */
+.game-grid {
+    display: flex; /* Changed to flexbox for horizontal layout */
+    flex-wrap: nowrap; /* Prevent wrapping to keep all items in a single row */
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    gap: 10px; /* Space between game options */
+    padding: 10px 0; /* Padding to add space around the game grid */
+    max-width: 100%;
+}
+
+/* Game Option Styling */
+.game-option {
+    flex: 0 0 auto; /* Prevent flex items from stretching */
+    width: 100px; /* Set a fixed width for each game option */
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Rest of your styling remains the same */over {
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
