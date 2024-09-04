@@ -102,12 +102,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const generatedKeysTitle = document.getElementById('generatedKeysTitle');
     const copyStatus = document.getElementById('copyStatus');
     const generateMoreBtn = document.getElementById('generateMoreBtn');
-    const Buycoffee = document.getElementById('Buycoffee');
+    const sourceCode = document.getElementById('sourceCode');
 
     let selectedGame = null;
 
-    Telegram.addEventListener('click', () => {
-        window.open('https://t.me/HamesterKombatdailyUpdates', '_blank');
+    sourceCode.addEventListener('click', () => {
+        window.open('https://github.com/ShafiqSadat/HamsterKeyGenWeb', '_blank');
     });
     
 gameOptions.forEach(option => {
@@ -154,94 +154,6 @@ gameOptions.forEach(option => {
         copyAllBtn.classList.add('hidden');
         startBtn.classList.add('hidden');
         startBtn.disabled = true;
-
-    let progress = 0;
-    const updateProgress = (increment, message) => {
-        progress += increment;
-        progressBar.style.width = `${progress}%`;
-        progressText.innerText = `${progress}%`;
-        progressLog.innerText = message;
-    };
-
-    const generateKeyProcess = async () => {
-        const clientId = generateClientId();
-        let clientToken;
-        try {
-            clientToken = await login(clientId, game.appToken);
-        } catch (error) {
-            console.error(`Failed to login: ${error.message}`);
-            alert(`Failed to login: ${error.message}`);
-            startBtn.disabled = false;
-            return null;
-        }
-
-        for (let i = 0; i < game.attempts; i++) {
-            const hasCode = await emulateProgress(clientToken, game.promoId);
-            updateProgress((100 / game.attempts) / keyCount, `Emulating progress ${i + 1}/${game.attempts}...`);
-            if (hasCode) {
-                break;
-            }
-            await sleep(game.timing);  // Sleep after each attempt to wait before the next event registration
-        }
-
-        try {
-            const key = await generateKey(clientToken, game.promoId);
-            updateProgress(100 / keyCount, 'Generating key...');
-            return key;
-        } catch (error) {
-            console.error(`Failed to generate key: ${error.message}`);
-            alert(`Failed to generate key: ${error.message}`);
-            return null;
-        }
-    };
-
-    try {
-        const keys = await Promise.all(Array.from({ length: keyCount }, generateKeyProcess));
-
-        if (keys.length > 1) {
-            keysList.innerHTML = keys.filter(key => key).map(key =>
-                `<div class="key-item">
-                    <input type="text" value="${key}" readonly>
-                    <button class="copyKeyBtn" data-key="${key}">Copy Key</button>
-                </div>`
-            ).join('');
-            copyAllBtn.classList.remove('hidden');
-        } else if (keys.length === 1) {
-            keysList.innerHTML =
-                `<div class="key-item">
-                    <input type="text" value="${keys[0]}" readonly>
-                    <button class="copyKeyBtn" data-key="${keys[0]}">Copy Key</button>
-                </div>`;
-        }
-
-        keyContainer.classList.remove('hidden');
-        generatedKeysTitle.classList.remove('hidden');
-
-        document.querySelectorAll('.copyKeyBtn').forEach(button => {
-            button.addEventListener('click', (event) => {
-                const key = event.target.getAttribute('data-key');
-                copyToClipboard(key);
-            });
-        });
-
-        copyAllBtn.addEventListener('click', () => {
-            const keysText = keys.filter(key => key).join('\n');
-            copyToClipboard(keysText);
-        });
-
-        progressBar.style.width = '100%';
-        progressText.innerText = '100%';
-        progressLog.innerText = 'Complete';
-
-    } catch (error) {
-        console.error('Error generating keys:', error);
-    } finally {
-        startBtn.classList.remove('hidden');
-        keyCountGroup.classList.remove('hidden');
-        document.querySelector('.grid-container').style.display = 'grid';
-        startBtn.disabled = false;
-    }
-});
 
         let progress = 0;
         const updateProgress = (increment, message) => {
