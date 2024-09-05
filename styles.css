@@ -303,7 +303,9 @@ body {
     display: none; /* Hide sections by default */
 }
 
-#main-menu:target, #combo:target, #clipper:target {
+#main-menu:target,
+#combo:target,
+#clipper:target {
     display: block; /* Show the section when the anchor is targeted */
 }
 
