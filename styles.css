@@ -1,3 +1,58 @@
+:root {
+    --bg-color: #f5f7fa;
+    --selected-bg-color: #007bff;
+    --selected-text-color: #ffffff;
+    --container-bg: #ffffff;
+    --text-color: #333;
+    --heading-color: #007bff;
+    --border-color: #ddd;
+    --hover-border-color: #007bff;
+    --label-color: #555;
+    --slider-bg: #ddd;
+    --slider-thumb: #007bff;
+    --slider-thumb-hover: #0056b3;
+    --button-bg: #007bff;
+    --button-color: white;
+    --button-hover: #0056b3;
+    --progress-bg: #f5f7fa;
+    --progress-fill: #007bff;
+    --input-border: #ccc;
+    --input-bg: #ffffff;
+    --copy-button-bg: #28a745;
+    --copy-button-hover: #218838;
+    --footer-color: #777;
+    --copy-status-color: green;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --selected-bg-color: #2c3e50;
+    --selected-text-color: #ecf0f1;
+    --container-bg: #2a2a2a;
+    --text-color: #e0e0e0;
+    --heading-color: #4da3ff;
+    --border-color: #444;
+    --hover-border-color: #4da3ff;
+    --label-color: #bbb;
+    --slider-bg: #444;
+    --slider-thumb: #4da3ff;
+    --slider-thumb-hover: #3a7abd;
+    --button-bg: #4da3ff;
+    --button-color: #1a1a1a;
+    --button-hover: #3a7abd;
+    --progress-bg: #444;
+    --progress-fill: #4da3ff;
+    --input-border: #444;
+    --input-bg: #333;
+    --copy-button-bg: #2ecc71;
+    --copy-button-hover: #27ae60;
+    --footer-color: #888;
+    --copy-status-color: #2ecc71;
+    --box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+
 /* Global Styling */
 body {
     font-family: 'Roboto', sans-serif;
