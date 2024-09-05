@@ -281,3 +281,53 @@ button:hover {
     50% { background-position: 100% 100%; }
     100% { background-position: 0% 0%; }
 }
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Main content area */
+.container {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Section styling */
+.section {
+    display: none; /* Hide sections by default */
+}
+
+#main-menu:target, #combo:target, #clipper:target {
+    display: block; /* Show the section when the anchor is targeted */
+}
+
+/* Style the menu container */
+.menu-container {
+    position: fixed; /* Fix menu to the bottom of the page */
+    bottom: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.menu-button {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.menu-button:hover {
+    background-color: #2980b9;
+}
