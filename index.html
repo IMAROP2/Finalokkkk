@@ -6,98 +6,88 @@
     <title>Hamster Key Generator</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
-    <!-- Main Content -->
     <div class="container">
-        <!-- Main Menu Section -->
-        <div id="main-menu" class="section">
-            <h1>Hamster Key Generator</h1>
-            <div id="gameSelectContainer" class="grid-container">
-                <div class="game-option" data-game="12">
-                    <img src="https://cdn.hamsterkombat.io/fluff/image.webp" alt="Fluff">
-                    <p>Fluff Crusade</p>
-                </div>
-                <div class="game-option" data-game="11">
-                    <img src="https://cdn.hamsterkombat.io/zoopolis/image.webp" alt="Zoopolis">
-                    <p>Zoopolis</p>
-                </div>
-                <div class="game-option" data-game="8">
-                    <img src="https://cdn.hamsterkombat.io/mow_trim/image.webp" alt="Polysphere">
-                    <p>Mow and Trim</p>
-                </div>
-                <div class="game-option" data-game="7">
-                    <img src="https://cdn.hamsterkombat.io/polysphere/image.webp" alt="Polysphere">
-                    <p>Polysphere</p>
-                </div>
-                <div class="game-option" data-game="6">
-                    <img src="https://cdn.hamsterkombat.io/twerk/image.webp" alt="Twerk Race 3D">
-                    <p>Twerk Race 3D</p>
-                </div>
-                <div class="game-option" data-game="5">
-                    <img src="https://cdn.hamsterkombat.io/merge_away/image.webp" alt="Merge Away">
-                    <p>Merge Away</p>
-                </div>
-                <div class="game-option" data-game="2">
-                    <img src="https://cdn.hamsterkombat.io/chain_cube/image.webp" alt="Chain Cube 2048">
-                    <p>Chain Cube 2048</p>
-                </div>
-                <div class="game-option" data-game="4">
-                    <img src="https://cdn.hamsterkombat.io/train_miner/image.webp" alt="Train Miner">
-                    <p>Train Miner</p>
-                </div>
+        <h1>Hamster Key Generator</h1>
+        <div id="gameSelectContainer" class="grid-container">
+	<div class="game-option" data-game="13">
+            <img src="https://cdn.hamsterkombat.io/stone_age/image.webp" alt="Stone Age"">
+            <p>Stone Age</p>
+	</div>
+            <div class="game-option" data-game="12">
+            <img src="https://cdn.hamsterkombat.io/fluff/image.webp" alt="Fluff"">
+            <p>Fluff Crusade</p>
             </div>
-
-            <div class="form-group hidden" id="keyCountGroup">
-                <label for="keyCountSelect">Select Number of Keys:</label>
-                <div id="keyCountSelect" class="key-slider">
-                    <input type="range" min="1" max="4" value="1" id="keyRange">
-                    <span id="keyValue">1</span>
-                </div>
+            <div class="game-option" data-game="10">
+            <img src="https://cdn.hamsterkombat.io/tile_trio/image.webp" alt="CafeDash"">
+            <p>Tile Trio</p>
             </div>
-            <button id="startBtn" class="hidden">Generate Keys</button>
-
-            <div id="progressContainer" class="hidden">
-                <div class="progress-bar">
-                    <div id="progressBar"></div>
-                </div>
-                <p id="progressText">0%</p>
-                <p id="progressLog">Starting...</p>
+			<div class="game-option" data-game="11">
+            <img src="https://cdn.hamsterkombat.io/zoopolis/image.webp" alt="Zoopolis"">
+            <p>Zoopolis</p>
             </div>
-
-            <div id="keyContainer" class="hidden">
-                <h2 id="generatedKeysTitle" class="hidden">Generated Keys</h2>
-                <div id="keysList"></div>
-                <button id="copyAllBtn" class="hidden">Copy All Keys</button>
+            <div class="game-option" data-game="8">
+            <img src="https://cdn.hamsterkombat.io/mow_trim/image.webp" alt="Polysphere">
+            <p>Mow and Trim</p>
             </div>
-
-            <p id="keyCountLabel">Number of keys:</p>
-
-            <button id="generateMoreBtn" class="hidden">Generate More Keys</button>
-            <p id="copyStatus" class="hidden">Keys copied to clipboard!</p>
-
-            <div class="footer">
-                <p class="disclaimer">⚠️ This tool is intended for educational purposes only. Please use it responsibly. 🔐</p>
-                <button id="sourceCode">Telegram</button>
+            <div class="game-option" data-game="7">
+            <img src="https://cdn.hamsterkombat.io/polysphere/image.webp" alt="Polysphere">
+            <p>Polysphere</p>
+            </div>
+            <div class="game-option" data-game="6">
+                <img src="https://cdn.hamsterkombat.io/twerk/image.webp" alt="Twerk Race 3D">
+                <p>Twerk Race 3D</p>
+            </div>
+            <div class="game-option" data-game="5">
+                <img src="https://cdn.hamsterkombat.io/merge_away/image.webp" alt="Merge Away">
+                <p>Merge Away</p>
+            </div>
+            <div class="game-option" data-game="2">
+                <img src="https://cdn.hamsterkombat.io/chain_cube/image.webp" alt="Chain Cube 2048">
+                <p>Chain Cube 2048</p>
+            </div>
+            <div class="game-option" data-game="4">
+                <img src="https://cdn.hamsterkombat.io/train_miner/image.webp" alt="Train Miner">
+                <p>Train Miner</p>
             </div>
         </div>
 
-        <!-- Combo Section -->
-        <div id="combo" class="section">
-            <img src="combo.jpg" alt="Combo Image"> <!-- Replace with your image file path -->
+        <div class="form-group hidden" id="keyCountGroup">
+            <label for="keyCountSelect">Select Number of Keys:</label>
+            <div id="keyCountSelect" class="key-slider">
+                <input type="range" min="1" max="4" value="1" id="keyRange">
+                <span id="keyValue">1</span>
+            </div>
+        </div>
+        <button id="startBtn" class="hidden">Generate Keys</button>
+
+        <div id="progressContainer" class="hidden">
+            <div class="progress-bar">
+                <div id="progressBar"></div>
+            </div>
+            <p id="progressText">0%</p>
+            <p id="progressLog">Starting...</p>
         </div>
 
-        <!-- Clipper Section -->
-        <div id="clipper" class="section">
-            <p src="clipper.txt"<!-- Content from clipper.txt will be displayed here --> </p>
+        <div id="keyContainer" class="hidden">
+            <h2 id="generatedKeysTitle" class="hidden">Generated Keys</h2>
+            <div id="keysList"></div>
+            <button id="copyAllBtn" class="hidden">Copy All Keys</button>
         </div>
-    </div>
 
-    <!-- Menu Links at the bottom -->
-    <div class="menu-container">
-        <a href="#main-menu" class="menu-button">Main Menu</a>
-        <a href="#combo" class="menu-button">Combo</a>
-        <a href="#clipper" class="menu-button">Clipper</a>
+        <p id="keyCountLabel">Number of keys:</p>
+
+        <button id="generateMoreBtn" class="hidden">Generate More Keys</button>
+        <p id="copyStatus" class="hidden">Keys copied to clipboard!</p>
+        
+        <div class="footer">
+            <p>Disclaimer: This tool is for educational purposes only. Use responsibly.</p>
+            <button id="sourceCode">Source code</button>
+			<button id="themeToggleBtn" onclick="toggleTheme()"><i id="themeIcon" class="fas fa-sun"></i></button>
+        </div>
     </div>
 
     <script src="script.js"></script>
