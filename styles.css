@@ -287,9 +287,9 @@ button:hover {
     right: 5px;
     background-color: red;
     color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 12px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 10px;
     font-weight: bold;
 }
 
