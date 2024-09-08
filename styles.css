@@ -281,15 +281,16 @@ button:hover {
     50% { background-position: 100% 100%; }
     100% { background-position: 0% 0%; }
 }
+
 .new-badge {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 3px; /* Reduced space from the top */
+    right: 3px; /* Reduced space from the right */
     background-color: red;
     color: white;
-    padding: 2px 5px;
-    border-radius: 3px;
-    font-size: 10px;
+    padding: 1px 3px; /* Smaller padding */
+    border-radius: 2px; /* Slightly smaller corner radius */
+    font-size: 8px; /* Reduced font size */
     font-weight: bold;
 }
 
