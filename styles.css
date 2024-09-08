@@ -43,26 +43,26 @@ h1 {
 /* Grid Container */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
-    gap: 10px; /* Reduced gap */
-    margin-bottom: 15px; /* Reduced margin */
-    max-height: 250px; /* Adjusted max-height */
-    overflow-y: auto;
-    padding-right: 5px; /* Reduced padding */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid: adjusts column width */
+    gap: 10px; /* Space between grid items */
+    margin-bottom: 15px; /* Spacing from bottom */
+    max-height: 250px; /* Limit height, enable scroll if exceeded */
+    overflow-y: auto; /* Vertical scrolling if necessary */
+    padding-right: 5px; /* Inner padding adjustment */
 }
 
 /* Game Option Styling */
 .game-option {
     border: 2px solid transparent;
-    border-radius: 10px; /* Adjusted border-radius */
-    padding: 10px; /* Reduced padding */
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Adjusted transition */
-    background: rgba(255, 255, 255, 0.1);
-    position: relative;
-    overflow: hidden;
-    color: #fff;
+    border-radius: 10px; /* Smooth rounded corners */
+    padding: 10px; /* Inner padding */
+    text-align: center; /* Center-align text */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Smooth transition for hover effects */
+    background: rgba(255, 255, 255, 0.1); /* Transparent background */
+    position: relative; /* Allows absolute positioning of child elements */
+    overflow: hidden; /* Hide overflow content */
+    color: #fff; /* White text */
     font-size: 14px; /* Adjusted font size */
 }
 
