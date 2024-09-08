@@ -128,30 +128,58 @@ p {
     color: #fff;
 }
 
+/* Key Slider Container */
+.key-slider {
+    margin: 20px 0;
+    position: relative;
+    width: 100%;
+}
+
 /* Key Slider */
 .key-slider input[type="range"] {
     -webkit-appearance: none;
     width: 100%;
-    height: 6px; /* Reduced height */
-    border-radius: 5px;
-    background: linear-gradient(90deg, #ff007f, #ff8c00);
+    height: 8px; /* Slightly larger height for better visibility */
+    border-radius: 10px; /* Increased roundness for a smoother look */
+    background: linear-gradient(90deg, #ff007f, #ff8c00); /* Gradient background */
     outline: none;
-    transition: background 0.3s;
+    transition: background 0.4s ease; /* Smoother transition */
+    box-shadow: 0 4px 10px rgba(255, 140, 0, 0.4); /* Subtle glow effect */
 }
 
+/* Slider Thumb */
 .key-slider input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px; /* Reduced width */
-    height: 18px; /* Reduced height */
+    width: 22px; /* Larger thumb size */
+    height: 22px; /* Larger thumb size */
     border-radius: 50%;
-    background: #ff007f;
+    background: radial-gradient(circle, #ff007f, #ff8c00); /* Gradient on thumb */
     cursor: pointer;
-    transition: background 0.3s;
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.6); /* Glowing thumb */
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; /* Smooth transformation */
 }
 
+/* Thumb Hover Effect */
 .key-slider input[type="range"]:hover::-webkit-slider-thumb {
-    background: #ff8c00;
+    transform: scale(1.2); /* Thumb grows slightly on hover */
+    background: radial-gradient(circle, #ff8c00, #ff007f); /* Reverse gradient on hover */
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.8); /* Stronger glow on hover */
+}
+
+/* Slider Active Effect */
+.key-slider input[type="range"]:active::-webkit-slider-thumb {
+    transform: scale(1.4); /* Thumb grows more when dragged */
+    box-shadow: 0 0 25px rgba(255, 140, 0, 1); /* Intense glow when active */
+}
+
+/* Slider Progress Fill */
+.key-slider input[type="range"]::-webkit-slider-runnable-track {
+    height: 8px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #ff007f, #ff8c00); /* Gradient background */
+    box-shadow: inset 0 4px 10px rgba(255, 140, 0, 0.2); /* Inner shadow for depth */
+    transition: background 0.4s ease;
 }
 
 /* Buttons */
