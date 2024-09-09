@@ -42,17 +42,18 @@ h1 {
 
 /* Grid Container */
 .grid-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* Ensures horizontal alignment */
+    display: flex; /* Flexbox layout to arrange items horizontally */
+    gap: 10px; /* Space between items */
+    margin-bottom: 15px;
+    max-height: 250px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding-right: 5px;
+    white-space: nowrap; /* Prevent wrapping to a new line */
 }
 
-.game-option {
-    flex: 1 1 calc(33.33% - 10px); /* Each option takes up a third of the row */
-    margin-bottom: 10px;
-}
 /* Game Option Styling */
 .game-option {
+    display: inline-block; /* Ensure the items stay inline for horizontal scrolling */
     border: 2px solid transparent;
     border-radius: 10px; /* Smooth rounded corners */
     padding: 10px; /* Inner padding */
@@ -64,6 +65,7 @@ h1 {
     overflow: hidden; /* Hide overflow content */
     color: #fff; /* White text */
     font-size: 14px; /* Adjusted font size */
+    min-width: 150px; /* Set a minimum width to ensure consistency */
 }
 
 /* Glitter Effect - Differentiated for each game */
