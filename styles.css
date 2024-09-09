@@ -66,106 +66,83 @@ h1 {
     font-size: 14px; /* Adjusted font size */
 }
 
-/* Enhanced Glitter Effect with Neon Glow - Differentiated for each game */
-.game-option.selected {
-    border-color: #ff00ff; /* Brighter neon color for selected */
-    animation: glitter 2s infinite; /* Enhanced Glitter animation */
-    background: linear-gradient(135deg, #ff00ff, #ff8c00, #00ffea); /* Smoother gradient for selected */
-    border-radius: 12px; /* Rounded corners for modern look */
-    box-shadow: 0 0 30px rgba(255, 0, 255, 0.8), 0 0 60px rgba(255, 140, 0, 0.8), 0 0 90px rgba(0, 255, 234, 0.8); /* Neon glow effect */
-}
 
-@keyframes glitter {
-    0%, 100% { box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff; }
-    50% { box-shadow: 0 0 40px #ff8c00, 0 0 60px #00ffea; }
-}
 
-/* Hover and Selection Effects with Smooth Transitions */
+/* Modern Clean Design for Game Options */
 .game-option {
-    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, background 0.4s ease-in-out; /* Smooth transitions */
     position: relative;
-    padding: 10px;
+    padding: 15px 20px;
     text-align: center;
-    color: white;
-    font-size: 1.2rem;
+    color: #333; /* Clean, dark text color */
+    font-size: 1.1rem; /* Slightly smaller font size for clean look */
+    background-color: #f7f7f7; /* Light, neutral background */
+    border: 1px solid #ddd; /* Soft border for clean separation */
+    border-radius: 8px; /* Rounded corners for a modern touch */
+    transition: all 0.3s ease-in-out; /* Smooth, subtle transitions */
     cursor: pointer;
-    border: 2px solid transparent;
-    border-radius: 8px; /* Smoother corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
-/* Enhanced Hover Effect */
+/* Hover Effect with Soft Shadow and Subtle Scale */
 .game-option:hover {
-    transform: scale(1.1); /* Increased hover scaling */
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.7), 0 0 50px rgba(255, 255, 255, 0.5); /* Brighter box-shadow */
-    background: linear-gradient(135deg, #00ffea, #ff8c00); /* Change gradient on hover */
+    background-color: #eaeaea; /* Slightly darker background on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow */
+    transform: translateY(-2px); /* Subtle lift effect */
 }
 
-/* Active Selection Effect with Moving Light and Enhanced Glow */
-.game-option.selected::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 300%;
-    height: 300%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: rotate(45deg);
-    pointer-events: none;
-    animation: moveLight 3s infinite, pulseGlow 2s infinite; /* Added pulse glow effect */
+/* Selected Game Option */
+.game-option.selected {
+    background-color: #ffde59; /* Light yellow background for selected */
+    border-color: #ffc107; /* Soft yellow border for selected */
+    color: #333; /* Keep text clean and dark */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+    font-weight: 600; /* Slightly bolder font for emphasis */
 }
 
-@keyframes moveLight {
-    0% { left: -150%; top: -150%; }
-    50% { left: 150%; top: 150%; }
-    100% { left: -150%; top: -150%; }
+/* Minimalistic Glow Animation for Selected */
+@keyframes subtleGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(255, 193, 7, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); }
 }
 
-@keyframes pulseGlow {
-    0% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); }
-    50% { box-shadow: 0 0 60px rgba(255, 255, 255, 0.8); }
-    100% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); }
+.game-option.selected {
+    animation: subtleGlow 2s ease-in-out infinite; /* Soft glow for selection */
 }
 
-/* Adding Custom Cursors */
+/* Modern Button Transitions */
 .game-option {
-    cursor: url('https://example.com/custom-cursor.png'), auto; /* Replace with custom cursor */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions */
 }
 
-/* Tooltip Effect for Better User Experience */
-.game-option::before {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 120%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.game-option:hover::before {
-    opacity: 1;
-}
-
-/* Ripple Effect on Click */
+/* Clean, subtle ripple effect on click */
 .game-option:active::after {
     content: '';
     position: absolute;
-    width: 100px;
-    height: 100px;
-    background: rgba(255, 255, 255, 0.2);
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    transform: scale(0);
-    animation: ripple 0.6s ease-out;
+    transform: translate(-50%, -50%) scale(0);
+    animation: rippleEffect 0.6s ease-out;
 }
 
-@keyframes ripple {
-    100% { transform: scale(4); opacity: 0; }
+@keyframes rippleEffect {
+    to {
+        transform: translate(-50%, -50%) scale(10);
+        opacity: 0;
+    }
+}
+
+/* Optional - Subtle hover shadow and transition for smoothness */
+.game-option:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Clean and simple cursor pointer */
+.game-option {
+    cursor: pointer;
 }
 
 /* Game Option Images */
