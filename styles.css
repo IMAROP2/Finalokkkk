@@ -69,59 +69,56 @@ h1 {
 
 
 /* Modern Clean Design for Game Options */
+/* Unique Modern Design for Game Options */
 .game-option {
     position: relative;
-    padding: 15px 20px;
+    padding: 15px 25px;
     text-align: center;
     color: #333; /* Clean, dark text color */
-    font-size: 1.1rem; /* Slightly smaller font size for clean look */
-    background-color: #f7f7f7; /* Light, neutral background */
-    border: 1px solid #ddd; /* Soft border for clean separation */
-    border-radius: 8px; /* Rounded corners for a modern touch */
-    transition: all 0.3s ease-in-out; /* Smooth, subtle transitions */
+    font-size: 1.2rem; /* Adjusted font size for readability */
+    background-color: #ffffff; /* Clean, white background */
+    border: 1px solid #dcdcdc; /* Subtle border for separation */
+    border-radius: 10px; /* Rounded corners */
+    transition: all 0.3s ease-in-out; /* Smooth transitions */
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    overflow: hidden; /* Ensure content does not overflow */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; /* Display ellipsis for overflow text */
 }
 
-/* Hover Effect with Soft Shadow and Subtle Scale */
+/* Hover Effect with Modern Glow */
 .game-option:hover {
-    background-color: #eaeaea; /* Slightly darker background on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow */
-    transform: translateY(-2px); /* Subtle lift effect */
+    background-color: #f0f0f0; /* Light gray background on hover */
+    border-color: #bdbdbd; /* Darker border on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+    transform: scale(1.05); /* Slight scale effect */
 }
 
-/* Selected Game Option */
+/* Selected Game Option with Unique Design */
 .game-option.selected {
-    background-color: #ffde59; /* Light yellow background for selected */
-    border-color: #ffc107; /* Soft yellow border for selected */
-    color: #333; /* Keep text clean and dark */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
-    font-weight: 600; /* Slightly bolder font for emphasis */
+    background-color: #d1c4e9; /* Soft purple background for selected */
+    border-color: #aab4fe; /* Blueish border for selected */
+    color: #333; /* Text color */
+    font-weight: 600; /* Bold text for emphasis */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+    animation: uniqueGlow 1.5s ease-in-out infinite; /* Unique glow effect */
 }
 
-/* Minimalistic Glow Animation for Selected */
-@keyframes subtleGlow {
-    0%, 100% { box-shadow: 0 0 10px rgba(255, 193, 7, 0.4); }
-    50% { box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); }
+/* Unique Glow Animation */
+@keyframes uniqueGlow {
+    0%, 100% { box-shadow: 0 0 15px rgba(209, 196, 233, 0.6); }
+    50% { box-shadow: 0 0 30px rgba(209, 196, 233, 0.9); }
 }
 
-.game-option.selected {
-    animation: subtleGlow 2s ease-in-out infinite; /* Soft glow for selection */
-}
-
-/* Modern Button Transitions */
-.game-option {
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-}
-
-/* Clean, subtle ripple effect on click */
+/* Clean Ripple Effect on Click */
 .game-option:active::after {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 20px;
-    height: 20px;
+    width: 60px;
+    height: 60px;
     background: rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     transform: translate(-50%, -50%) scale(0);
@@ -130,19 +127,31 @@ h1 {
 
 @keyframes rippleEffect {
     to {
-        transform: translate(-50%, -50%) scale(10);
+        transform: translate(-50%, -50%) scale(2.5);
         opacity: 0;
     }
 }
 
-/* Optional - Subtle hover shadow and transition for smoothness */
-.game-option:hover {
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+/* Improved Tooltip with Modern Styling */
+.game-option::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
-/* Clean and simple cursor pointer */
-.game-option {
-    cursor: pointer;
+.game-option:hover::before {
+    opacity: 1;
 }
 
 /* Game Option Images */
