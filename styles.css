@@ -66,41 +66,106 @@ h1 {
     line-height: 1.2;
 }
 
-/* Glitter Effect - Differentiated for each game */
+/* Enhanced Glitter Effect with Neon Glow - Differentiated for each game */
 .game-option.selected {
-    border-color: #ff007f; /* Different color for selected */
-    animation: glitter 2s infinite; /* Glitter animation */
-    background: linear-gradient(45deg, #ff007f, #ff8c00); /* Gradient for selected */
+    border-color: #ff00ff; /* Brighter neon color for selected */
+    animation: glitter 2s infinite; /* Enhanced Glitter animation */
+    background: linear-gradient(135deg, #ff00ff, #ff8c00, #00ffea); /* Smoother gradient for selected */
+    border-radius: 12px; /* Rounded corners for modern look */
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.8), 0 0 60px rgba(255, 140, 0, 0.8), 0 0 90px rgba(0, 255, 234, 0.8); /* Neon glow effect */
 }
 
 @keyframes glitter {
-    0%, 100% { box-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f; }
-    50% { box-shadow: 0 0 20px #ff8c00, 0 0 40px #ff8c00; }
+    0%, 100% { box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff; }
+    50% { box-shadow: 0 0 40px #ff8c00, 0 0 60px #00ffea; }
 }
 
-/* Hover and Selection Effects */
+/* Hover and Selection Effects with Smooth Transitions */
+.game-option {
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, background 0.4s ease-in-out; /* Smooth transitions */
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 8px; /* Smoother corners */
+}
+
+/* Enhanced Hover Effect */
 .game-option:hover {
-    transform: scale(1.05); /* Slightly reduced scale */
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Reduced box-shadow */
+    transform: scale(1.1); /* Increased hover scaling */
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.7), 0 0 50px rgba(255, 255, 255, 0.5); /* Brighter box-shadow */
+    background: linear-gradient(135deg, #00ffea, #ff8c00); /* Change gradient on hover */
 }
 
+/* Active Selection Effect with Moving Light and Enhanced Glow */
 .game-option.selected::after {
     content: '';
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.2);
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
     transform: rotate(45deg);
     pointer-events: none;
-    animation: moveLight 3s infinite;
+    animation: moveLight 3s infinite, pulseGlow 2s infinite; /* Added pulse glow effect */
 }
 
 @keyframes moveLight {
-    0% { left: -100%; top: -100%; }
-    50% { left: 100%; top: 100%; }
-    100% { left: -100%; top: -100%; }
+    0% { left: -150%; top: -150%; }
+    50% { left: 150%; top: 150%; }
+    100% { left: -150%; top: -150%; }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); }
+    50% { box-shadow: 0 0 60px rgba(255, 255, 255, 0.8); }
+    100% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); }
+}
+
+/* Adding Custom Cursors */
+.game-option {
+    cursor: url('https://example.com/custom-cursor.png'), auto; /* Replace with custom cursor */
+}
+
+/* Tooltip Effect for Better User Experience */
+.game-option::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.game-option:hover::before {
+    opacity: 1;
+}
+
+/* Ripple Effect on Click */
+.game-option:active::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    100% { transform: scale(4); opacity: 0; }
 }
 
 /* Game Option Images */
