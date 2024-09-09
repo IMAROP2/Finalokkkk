@@ -42,30 +42,28 @@ h1 {
 
 /* Grid Container */
 .grid-container {
-    display: flex; /* Flexbox layout to arrange items horizontally */
-    gap: 10px; /* Space between items */
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to a new line */
+    overflow-x: auto;  /* Enable horizontal scrolling */
+    gap: 10px;
     margin-bottom: 15px;
-    max-height: 250px;
-    overflow-x: auto; /* Enable horizontal scrolling */
     padding-right: 5px;
-    white-space: nowrap; /* Prevent wrapping to a new line */
 }
 
 /* Game Option Styling */
 .game-option {
-    display: inline-block; /* Ensure the items stay inline for horizontal scrolling */
+    flex: 0 0 150px; /* Set a fixed width for each game option */
+    height: 150px; /* Set a fixed height for each game option */
     border: 2px solid transparent;
-    border-radius: 10px; /* Smooth rounded corners */
-    padding: 10px; /* Inner padding */
-    text-align: center; /* Center-align text */
-    cursor: pointer; /* Pointer cursor for interactivity */
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Smooth transition for hover effects */
-    background: rgba(255, 255, 255, 0.1); /* Transparent background */
-    position: relative; /* Allows absolute positioning of child elements */
-    overflow: hidden; /* Hide overflow content */
-    color: #fff; /* White text */
-    font-size: 14px; /* Adjusted font size */
-    min-width: 150px; /* Set a minimum width to ensure consistency */
+    border-radius: 10px;
+    padding: 5px; /* Reduced inner padding */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 12px; /* Smaller font size */
+    line-height: 1.2;
 }
 
 /* Glitter Effect - Differentiated for each game */
