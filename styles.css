@@ -43,12 +43,12 @@ h1 {
 /* Grid Container */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid: adjusts column width */
-    gap: 10px; /* Space between grid items */
-    margin-bottom: 15px; /* Spacing from bottom */
-    max-height: 250px; /* Limit height, enable scroll if exceeded */
-    overflow-y: auto; /* Vertical scrolling if necessary */
-    padding-right: 5px; /* Inner padding adjustment */
+    grid-template-columns: repeat(3, 1fr); /* Change this to create 3 columns for horizontal layout */
+    gap: 10px;
+    margin-bottom: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 5px;
 }
 
 /* Game Option Styling */
