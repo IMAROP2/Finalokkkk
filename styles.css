@@ -42,16 +42,15 @@ h1 {
 
 /* Grid Container */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 10px;
-    margin-bottom: 15px;
-    max-height: 250px; /* Ensure height doesn't limit the layout */
-    max-width: 100%; /* Ensure the width adapts */
-    overflow-y: auto;
-    padding-right: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ensures horizontal alignment */
 }
 
+.game-option {
+    flex: 1 1 calc(33.33% - 10px); /* Each option takes up a third of the row */
+    margin-bottom: 10px;
+}
 /* Game Option Styling */
 .game-option {
     border: 2px solid transparent;
