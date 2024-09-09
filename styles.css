@@ -43,10 +43,11 @@ h1 {
 /* Grid Container */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Change this to create 3 columns for horizontal layout */
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
     gap: 10px;
     margin-bottom: 15px;
-    max-height: 250px;
+    max-height: 250px; /* Ensure height doesn't limit the layout */
+    max-width: 100%; /* Ensure the width adapts */
     overflow-y: auto;
     padding-right: 5px;
 }
