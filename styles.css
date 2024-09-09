@@ -42,28 +42,28 @@ h1 {
 
 /* Grid Container */
 .grid-container {
-    display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping to a new line */
-    overflow-x: auto;  /* Enable horizontal scrolling */
-    gap: 10px;
-    margin-bottom: 15px;
-    padding-right: 5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
+    gap: 10px; /* Reduced gap */
+    margin-bottom: 15px; /* Reduced margin */
+    max-height: 250px; /* Adjusted max-height */
+    overflow-y: auto;
+    padding-right: 5px; /* Reduced padding */
 }
 
 /* Game Option Styling */
 .game-option {
-    flex: 0 0 150px; /* Set a fixed width for each game option */
-    height: 150px; /* Set a fixed height for each game option */
     border: 2px solid transparent;
-    border-radius: 10px;
-    padding: 5px; /* Reduced inner padding */
+    border-radius: 10px; /* Adjusted border-radius */
+    padding: 10px; /* Reduced padding */
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Adjusted transition */
     background: rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
     color: #fff;
-    font-size: 12px; /* Smaller font size */
-    line-height: 1.2;
+    font-size: 14px; /* Adjusted font size */
 }
 
 /* Enhanced Glitter Effect with Neon Glow - Differentiated for each game */
