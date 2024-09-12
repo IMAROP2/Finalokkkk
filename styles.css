@@ -1,421 +1,119 @@
-/* Global Styling */
-body {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to right, #1f1c2c, #928dab); /* Dark gradient background */
-    color: #fff;
+}
+
+body {
+    background-color: #1f2937;
+    color: #f3f4f6;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    padding: 20px; /* Added padding to avoid content being too close to the edges */
-    box-sizing: border-box; /* Ensure padding is included in the width and height */
 }
 
-/* Container Styling */
-.container {
-    background: rgba(0, 0, 0, 0.8); /* Transparent black background */
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-    padding: 20px; /* Reduced padding */
-    max-width: 90%; /* Responsive width */
+.app-container {
+    background-color: #2d3748;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
     width: 100%;
-    max-width: 400px; /* Adjusted max-width for smaller screens */
-    text-align: center;
-    position: relative;
-    overflow: hidden; /* Hide overflow for effects */
-    margin-top: 50px; /* Added margin to prevent title from being too close to the top */
-    box-sizing: border-box;
-}
-/* Adjust spacing for the title */
-.main-title {
-    margin-top: 50px; /* Adjust this value as needed */
-    text-align: center; /* Optional: Centers the title */
-}
-/* Heading Styling */
-h1 {
-    margin-bottom: 20px; /* Reduced margin */
-    font-size: 22px; /* Adjusted font size */
-    color: #ffb3ff; /* Light pink text */
-    text-shadow: 2px 2px 4px #000; /* Shadow effect */
 }
 
-/* Grid Container */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #a0aec0;
+}
+
+.version {
+    font-size: 0.9rem;
+    color: #718096;
+}
+
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
-    gap: 10px; /* Reduced gap */
-    margin-bottom: 15px; /* Reduced margin */
-    max-height: 250px; /* Adjusted max-height */
-    overflow-y: auto;
-    padding-right: 5px; /* Reduced padding */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-/* Game Option Styling */
 .game-option {
-    border: 2px solid transparent;
-    border-radius: 10px; /* Adjusted border-radius */
-    padding: 10px; /* Reduced padding */
+    background-color: #4a5568;
+    padding: 10px;
+    border-radius: 8px;
     text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Adjusted transition */
-    background: rgba(255, 255, 255, 0.1);
-    position: relative;
-    overflow: hidden;
-    color: #fff;
-    font-size: 14px; /* Adjusted font size */
+    transition: transform 0.2s;
 }
 
-
-
-/* Modern Clean Design for Game Options */
-/* Unique Modern Design for Game Options */
-.game-option {
-    position: relative;
-    padding: 15px 25px;
-    text-align: center;
-    color: #333; /* Clean, dark text color */
-    font-size: 1.2rem; /* Adjusted font size for readability */
-    background-color: #ffffff; /* Clean, white background */
-    border: 1px solid #dcdcdc; /* Subtle border for separation */
-    border-radius: 10px; /* Rounded corners */
-    transition: all 0.3s ease-in-out; /* Smooth transitions */
-    cursor: pointer;
-    overflow: hidden; /* Ensure content does not overflow */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    white-space: nowrap; /* Prevent text from wrapping */
-    text-overflow: ellipsis; /* Display ellipsis for overflow text */
-}
-
-/* Hover Effect with Modern Glow */
-.game-option:hover {
-    background-color: #f0f0f0; /* Light gray background on hover */
-    border-color: #bdbdbd; /* Darker border on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
-    transform: scale(1.05); /* Slight scale effect */
-}
-
-/* Selected Game Option with Unique Design */
-.game-option.selected {
-    background-color: #d1c4e9; /* Soft purple background for selected */
-    border-color: #aab4fe; /* Blueish border for selected */
-    color: #333; /* Text color */
-    font-weight: 600; /* Bold text for emphasis */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
-    animation: uniqueGlow 1.5s ease-in-out infinite; /* Unique glow effect */
-}
-
-/* Unique Glow Animation */
-@keyframes uniqueGlow {
-    0%, 100% { box-shadow: 0 0 15px rgba(209, 196, 233, 0.6); }
-    50% { box-shadow: 0 0 30px rgba(209, 196, 233, 0.9); }
-}
-
-/* Clean Ripple Effect on Click */
-.game-option:active::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 60px;
-    height: 60px;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    animation: rippleEffect 0.6s ease-out;
-}
-
-@keyframes rippleEffect {
-    to {
-        transform: translate(-50%, -50%) scale(2.5);
-        opacity: 0;
-    }
-}
-
-/* Improved Tooltip with Modern Styling */
-.game-option::before {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 110%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.75);
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease-in-out;
-    white-space: nowrap; /* Prevent text wrapping */
-}
-
-.game-option:hover::before {
-    opacity: 1;
-}
-
-/* Game Option Images */
 .game-option img {
     width: 100%;
-    border-radius: 8px;
-    margin-bottom: 5px; /* Reduced margin */
-    transition: filter 0.3s; /* Adjusted transition */
+    height: auto;
+    margin-bottom: 5px;
 }
 
-.game-option:hover img {
-    filter: brightness(1.2);
+.game-option:hover {
+    transform: translateY(-5px);
+    background-color: #5a67d8;
 }
 
-/* Labels and Text */
-label {
-    display: block;
-    margin-bottom: 5px; /* Reduced margin */
-    font-weight: 500;
-    color: #ffb3ff;
+.key-generator {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-p {
-    font-weight: 500;
+.primary-btn {
+    background-color: #4299e1;
     color: #fff;
-}
-
-/* Key Slider Container */
-.key-slider {
-    width: 100%;
-    position: relative;
-    margin: 20px 0;
-}
-
-/* Key Slider Input */
-.key-slider input[type="range"] {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 12px; /* Slightly larger */
-    border-radius: 50px; /* Fully rounded edges */
-    background: linear-gradient(270deg, #6a11cb 0%, #2575fc 100%); /* Unique gradient */
-    outline: none;
-    transition: background 0.5s ease;
-    box-shadow: 0 4px 15px rgba(37, 117, 252, 0.7), inset 0 0 10px rgba(106, 17, 203, 0.6); /* Neon + inner glow */
-}
-
-/* Slider Thumb */
-.key-slider input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #ff007f, #ff8c00); /* Dual-color thumb */
-    cursor: pointer;
-    box-shadow: 0 0 20px rgba(255, 140, 0, 1), 0 0 10px rgba(255, 0, 127, 0.8), 0 0 30px rgba(255, 0, 255, 0.6); /* Multi-colored neon */
-    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Thumb Hover Effect */
-.key-slider input[type="range"]:hover::-webkit-slider-thumb {
-    transform: scale(1.3);
-    background: radial-gradient(circle, #00c6ff, #0072ff); /* Color change on hover */
-    box-shadow: 0 0 25px rgba(0, 198, 255, 1), 0 0 15px rgba(0, 114, 255, 1); /* Bright neon blue */
-}
-
-/* Thumb Active Effect */
-.key-slider input[type="range"]:active::-webkit-slider-thumb {
-    transform: scale(1.5);
-    box-shadow: 0 0 40px rgba(255, 0, 255, 1.2), 0 0 20px rgba(106, 17, 203, 1); /* Intense neon glow */
-    background: radial-gradient(circle, #6a11cb, #ff007f); /* Gradient thumb on drag */
-}
-
-/* Slider Track - Progress Fill */
-.key-slider input[type="range"]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 12px;
-    background: linear-gradient(90deg, #ff6a00 0%, #ff0000 50%, #ff007f 100%);
-    border-radius: 20px;
-    box-shadow: inset 0 4px 20px rgba(255, 140, 0, 0.6), 0 2px 10px rgba(106, 17, 203, 0.5); /* Unique track shadow */
-    transition: background 0.5s ease;
-}
-
-/* Tooltip Display for Value */
-.key-slider-tooltip {
-    position: absolute;
-    top: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 6px 12px;
-    background: #2c3e50; /* Dark background */
-    color: #fff;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-/* Show Tooltip on Hover */
-.key-slider input[type="range"]:hover + .key-slider-tooltip {
-    opacity: 1;
-}
-
-/* Active Tooltip */
-.key-slider input[type="range"]:active + .key-slider-tooltip {
-    background: #16a085; /* Tooltip color change on interaction */
-}
-
-/* Animated Gradient for Progress Bar */
-@keyframes gradient-animation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.key-slider input[type="range"]::-webkit-slider-runnable-track {
-    background-size: 200% 200%;
-    animation: gradient-animation 3s ease infinite; /* Animating the gradient */
-}
-
-/* Buttons */
-button {
-    background-color: #ff007f;
-    color: white;
     border: none;
-    padding: 10px 20px; /* Reduced padding */
-    font-size: 14px; /* Adjusted font size */
-    border-radius: 8px; /* Adjusted border-radius */
+    padding: 10px 20px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 0 10px rgba(255, 0, 127, 0.5); /* Pink glow */
+    font-size: 1rem;
 }
 
-button:hover {
-    background-color: #ff8c00;
-    transform: scale(1.05); /* Slightly reduced scale */
-    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5); /* Orange glow */
+.primary-btn:hover {
+    background-color: #2b6cb0;
 }
 
-/* Loading Spinner */
-.loading-spinner {
-    border: 4px solid rgba(255, 255, 255, 0.2);
-    border-top: 4px solid #ff007f;
-    border-radius: 50%;
-    width: 30px; /* Reduced width */
-    height: 30px; /* Reduced height */
-    animation: loading 1s linear infinite;
-    margin: 20px auto; /* Reduced margin */
+.progress-bar {
+    background-color: #2d3748;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 
-@keyframes loading {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+#progressBar {
+    background-color: #68d391;
+    height: 10px;
+    width: 0%;
 }
 
-/* Footer */
-.footer {
-    margin-top: 20px;
-    font-size: 12px;
-    color: #ffb3ff;
-    text-shadow: 2px 2px 4px #000;
-}
-
-/* Copy Status Message */
-#copyStatus {
-    margin-top: 10px;
-    color: #28a745;
-    font-weight: bold;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    visibility: hidden; /* Initially hidden */
-}
-
-/* Show Copy Status Message only when keys are copied */
-.keys-copied #copyStatus {
-    visibility: visible;
-}
-
-/* Enhanced Disclaimer Styling */
-.disclaimer {
-    font-size: 16px; /* Larger font size */
-    color: #ffc1c1; /* Softer pink text */
-    margin-top: 20px;
-    padding: 15px;
-    background-color: rgba(0, 0, 0, 0.85);
-    border-radius: 10px;
+footer {
     text-align: center;
-    font-weight: 600;
-    text-shadow: 1px 1px 4px #000;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
+    margin-top: 20px;
 }
 
-.disclaimer:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-.disclaimer::after {
-    content: "If you have any issues, contact the creator of the bot @Imarop first on Telegram.";
-    display: block;
-    margin-top: 12px;
-    color: #ff99ff;
-    font-size: 14px;
-    font-weight: 400;
-    text-shadow: 1px 1px 3px #000;
-    padding-top: 8px;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Creator Section Styling with Clickable Link (continued) */
-.creator-section {
-    margin-top: 30px;
-    padding: 15px;
-    background: linear-gradient(135deg, #ff6666, #ff3333, #8000ff);
-    background-size: 400% 400%;
-    color: #fff;
-    text-align: center;
-    border-radius: 12px;
-    font-weight: 700;
-    text-shadow: 2px 2px 5px #000;
-    animation: gradientShift 4s ease infinite;
-    transition: transform 0.3s, box-shadow 0.3s;
+.footer-btn {
+    background: none;
+    border: none;
+    color: #a0aec0;
+    font-size: 0.9rem;
     cursor: pointer;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin: 5px;
 }
 
-.creator-section:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+.footer-btn:hover {
+    color: #e2e8f0;
 }
 
-.creator-section a {
-    color: #ffff00; /* Bright yellow link color */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.creator-section a:hover {
-    text-decoration: underline;
-}
-
-/* Gradient Shift Animation */
-@keyframes gradientShift {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-}
-
-.new-badge {
-    position: absolute;
-    top: 3px; /* Reduced space from the top */
-    right: 3px; /* Reduced space from the right */
-    background-color: red;
-    color: white;
-    padding: 1px 3px; /* Smaller padding */
-    border-radius: 2px; /* Slightly smaller corner radius */
-    font-size: 8px; /* Reduced font size */
-    font-weight: bold;
-}
-
-.game-option {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    margin: 10px;
+.hidden {
+    display: none;
 }
