@@ -14,6 +14,7 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    transition: background-color 0.3s ease;
 }
 
 h1 {
@@ -21,6 +22,29 @@ h1 {
     color: #2c3e50;
     text-align: center;
     margin-bottom: 20px;
+    position: relative;
+    animation: fadeInDown 1s ease;
+}
+
+h1::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background-color: #3498db;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 4px;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .container {
@@ -28,9 +52,23 @@ h1 {
     width: 100%;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     padding: 30px;
     text-align: center;
+    position: relative;
+    animation: slideIn 1.2s ease forwards;
+    opacity: 0;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Grid Layout for Games */
@@ -45,13 +83,16 @@ h1 {
     border-radius: 8px;
     padding: 10px;
     text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
 .game-option:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: scale(1.08) rotate(1deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: #d0eaff;
 }
 
 .game-option img {
@@ -60,20 +101,41 @@ h1 {
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.game-option:hover img {
+    transform: scale(1.1);
 }
 
 .game-option p {
     font-weight: 500;
     color: #34495e;
+    transition: color 0.3s ease;
+}
+
+.game-option:hover p {
+    color: #2c3e50;
 }
 
 /* Form Group Styles */
 .form-group {
     margin: 20px 0;
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
 }
 
 .form-group.hidden {
     display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 label {
@@ -106,11 +168,34 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 button:hover {
     background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+button:hover::after {
+    opacity: 1;
 }
 
 button.hidden {
@@ -131,7 +216,11 @@ button.hidden {
     height: 100%;
     width: 0;
     background-color: #2ecc71;
-    transition: width 0.4s ease;
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+#progressBar.complete {
+    background-color: #27ae60;
 }
 
 #progressText, #progressLog {
@@ -157,15 +246,26 @@ button.hidden {
     background-color: #ecf0f1;
     border-radius: 5px;
     font-family: monospace;
+    animation: bounceIn 0.6s ease;
 }
 
-#generateMoreBtn {
-    margin-top: 20px;
+@keyframes bounceIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Footer */
 .footer {
     margin-top: 30px;
+    text-align: center;
+    opacity: 0.8;
+    animation: fadeIn 1s ease forwards;
 }
 
 .footer p {
@@ -189,8 +289,10 @@ button.hidden {
     font-size: 24px;
     cursor: pointer;
     color: #3498db;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 #themeToggleBtn:hover {
     color: #2980b9;
+    transform: rotate(45deg);
 }
