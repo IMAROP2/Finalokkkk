@@ -1,298 +1,95 @@
-/* General Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* General styling */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    transition: background-color 0.3s ease;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f8ff;
+  color: #333;
+  margin: 0;
 }
 
-h1 {
-    font-weight: 700;
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-    animation: fadeInDown 1s ease;
+h2 {
+  font-size: 24px;
+  color: #005f73;
 }
 
-h1::after {
-    content: '';
-    width: 80px;
-    height: 4px;
-    background-color: #3498db;
-    display: block;
-    margin: 10px auto 0;
-    border-radius: 4px;
+.choices, .computer {
+  text-align: center;
+  margin: 20px;
 }
 
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.btns {
+  margin-top: 10px;
 }
 
-.container {
-    max-width: 800px;
-    width: 100%;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    padding: 30px;
-    text-align: center;
-    position: relative;
-    animation: slideIn 1.2s ease forwards;
-    opacity: 0;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Grid Layout for Games */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-}
-
-.game-option {
-    background-color: #e7f3fe;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.game-option:hover {
-    transform: scale(1.08) rotate(1deg);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    background-color: #d0eaff;
-}
-
-.game-option img {
-    width: 100%;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    transition: transform 0.3s ease;
-}
-
-.game-option:hover img {
-    transform: scale(1.1);
-}
-
-.game-option p {
-    font-weight: 500;
-    color: #34495e;
-    transition: color 0.3s ease;
-}
-
-.game-option:hover p {
-    color: #2c3e50;
-}
-
-/* Form Group Styles */
-.form-group {
-    margin: 20px 0;
-    animation: fadeIn 0.8s ease forwards;
-    opacity: 0;
-}
-
-.form-group.hidden {
-    display: none;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-label {
-    font-weight: 500;
-    margin-bottom: 10px;
-    display: block;
-}
-
-.key-slider {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-input[type="range"] {
-    width: 70%;
-    cursor: pointer;
-}
-
-#keyValue {
-    font-weight: 700;
-}
-
-/* Buttons */
 button {
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    position: relative;
-    overflow: hidden;
+  font-size: 50px;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #0a9396;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
+  background-color: #005f73;
+  transform: scale(1.1);
 }
 
 button:active {
-    transform: translateY(2px);
+  background-color: #94d2bd;
+  transform: scale(1.05);
 }
 
-button::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.2);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+/* Computer hand styling */
+#animation {
+  font-size: 50px;
+  color: #ee9b00;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #ca6702;
+  transition: all 0.3s ease;
 }
 
-button:hover::after {
-    opacity: 1;
+/* Result display */
+#result {
+  font-size: 30px;
+  margin-top: 20px;
+  color: #d62828;
 }
 
-button.hidden {
-    display: none;
+/* Fireworks container */
+#fireworks-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
 }
 
-/* Progress Bar */
-.progress-bar {
-    width: 100%;
-    height: 20px;
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 20px 0;
-}
+@media (max-width: 600px) {
+  button {
+    font-size: 40px;
+    padding: 8px;
+  }
 
-#progressBar {
-    height: 100%;
-    width: 0;
-    background-color: #2ecc71;
-    transition: width 0.4s ease, background-color 0.4s ease;
-}
+  #animation {
+    font-size: 40px;
+  }
 
-#progressBar.complete {
-    background-color: #27ae60;
-}
+  h2 {
+    font-size: 20px;
+  }
 
-#progressText, #progressLog {
-    margin-top: 10px;
-    font-weight: 500;
-}
-
-/* Key Container */
-#keyContainer {
-    margin-top: 30px;
-}
-
-#keysList {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    margin-top: 15px;
-    text-align: left;
-}
-
-#keysList div {
-    padding: 10px;
-    background-color: #ecf0f1;
-    border-radius: 5px;
-    font-family: monospace;
-    animation: bounceIn 0.6s ease;
-}
-
-@keyframes bounceIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Footer */
-.footer {
-    margin-top: 30px;
-    text-align: center;
-    opacity: 0.8;
-    animation: fadeIn 1s ease forwards;
-}
-
-.footer p {
-    color: #7f8c8d;
-    font-size: 14px;
-}
-
-#sourceCode {
-    background-color: #27ae60;
-    margin-left: 10px;
-}
-
-#sourceCode:hover {
-    background-color: #229954;
-}
-
-/* Theme Toggle Button */
-#themeToggleBtn {
-    background-color: transparent;
-    border: none;
+  #result {
     font-size: 24px;
-    cursor: pointer;
-    color: #3498db;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-#themeToggleBtn:hover {
-    color: #2980b9;
-    transform: rotate(45deg);
+  }
 }
