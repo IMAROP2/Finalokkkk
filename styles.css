@@ -6,180 +6,170 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #0f2027; /* Dark-themed background with gradient */
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-    min-height: 100vh;
+    font-family: 'Raleway', sans-serif; /* New Modern Font */
+    background-color: #1e1e1e; /* Dark background with sleek color */
+    color: #fff; 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    overflow-x: hidden;
 }
 
+/* Header Style */
 h1 {
-    font-size: 2.8rem;
+    font-size: 3rem;
+    font-family: 'Oswald', sans-serif; /* Different Font for Title */
     text-align: center;
-    color: #f7f7f7;
     margin-bottom: 30px;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+    color: #ffb400;
+    letter-spacing: 1px;
+    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.4);
 }
 
-.container {
-    width: 95%;
-    max-width: 1200px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-}
-
-/* Game Selection Horizontal Format */
+/* Game Selection Area */
 .game-selector {
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 10px 0;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
+    gap: 2rem;
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #292929;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     overflow-x: auto;
-    scrollbar-width: none;
 }
 
 .game-option {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid transparent;
+    flex-basis: 150px;
+    text-align: center;
     border-radius: 15px;
     padding: 15px;
-    text-align: center;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
+    background-color: #3a3a3a;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
 }
 
 .game-option img {
     width: 100px;
     height: 100px;
+    object-fit: cover;
     border-radius: 50%;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease-in-out;
 }
 
 .game-option:hover {
-    border-color: #00c6ff; /* Neon blue border on hover */
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(0, 198, 255, 0.5);
-}
-
-.game-option:hover img {
-    transform: rotate(5deg);
-    box-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
-}
-
-.game-option.selected {
-    border-color: #f7b733; /* Highlight for selected option */
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
 }
 
 .game-option p {
-    color: #fff;
     margin-top: 10px;
-    font-size: 1rem;
-}
-
-/* Input for number of keys */
-#keyCountGroup {
-    text-align: center;
-    margin-top: 20px;
-}
-
-#keyCountGroup label {
     font-size: 1.2rem;
-    color: #fff;
+    font-weight: bold;
+    color: #ffb400;
 }
 
-#keyCountGroup input {
-    padding: 10px;
-    margin-left: 10px;
-    border-radius: 5px;
-    border: none;
-    font-size: 1rem;
-    text-align: center;
-    width: 100px;
+.game-option.selected {
+    border: 2px solid #ffb400;
 }
 
-/* Buttons */
-button {
-    display: inline-block;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    margin: 15px auto;
-    color: #fff;
-    background: #00c6ff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+/* Fancy Icons with Animation */
+.game-option:before {
+    content: "🎮"; /* Emoji icon */
+    position: absolute;
+    top: -25px;
+    right: 0;
+    font-size: 2.5rem;
+    opacity: 0;
     transition: all 0.3s ease;
 }
 
+.game-option:hover:before {
+    top: -35px;
+    opacity: 1;
+}
+
+/* Input Section */
+.input-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.input-section input {
+    padding: 12px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: none;
+    margin-top: 10px;
+    width: 200px;
+    background-color: #4a4a4a;
+    color: #fff;
+}
+
+.input-section input:focus {
+    outline: 2px solid #ffb400;
+}
+
+/* Generate Button */
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #ffb400;
+    border: none;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 180, 0, 0.4);
+}
+
 button:hover {
-    background: #f7b733;
+    background-color: #ff8b00;
+    box-shadow: 0 7px 20px rgba(255, 139, 0, 0.6);
     transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(247, 183, 51, 0.7);
 }
 
 /* Progress Bar */
-#progressContainer {
+.progress-container {
+    width: 100%;
     margin-top: 20px;
+    background-color: #444;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .progress-bar {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    height: 10px;
-    width: 100%;
-}
-
-#progressBar {
-    background: #00c6ff;
-    height: 100%;
-    border-radius: 10px;
+    height: 20px;
+    background-color: #ffb400;
     width: 0;
-    transition: width 0.3s ease;
-}
-
-/* Telegram Button */
-#telegramBtn {
-    display: inline-block;
-    padding: 12px 30px;
-    margin: 15px auto;
-    background-color: #0088cc;
-    color: #fff;
-    border-radius: 8px;
-    text-align: center;
-    transition: background-color 0.3s ease;
-}
-
-#telegramBtn:hover {
-    background-color: #005f99;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
 }
 
 /* Footer */
 .footer {
     text-align: center;
     margin-top: 30px;
-    color: #fff;
+    color: #a9a9a9;
 }
 
-/* Glitter effect for selected game */
-@keyframes glitter {
+/* Animation on selecting a game */
+@keyframes selectionEffect {
     0% {
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        transform: scale(1);
     }
     50% {
-        box-shadow: 0 0 30px rgba(0, 198, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
     }
     100% {
-        box-shadow: 0 0 20px rgba(0, 198, 255, 0.6);
+        transform: scale(1);
     }
 }
 
-.game-option.selected:active {
-    animation: glitter 0.5s forwards;
+.game-option.selected {
+    animation: selectionEffect 0.8s ease forwards;
 }
