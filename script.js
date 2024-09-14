@@ -1,46 +1,9 @@
 function toggleTheme() {
-    const html = document.documentElement;
+    document.body.classList.toggle('light-mode');
     const themeIcon = document.getElementById('themeIcon');
-    
-    if (html.getAttribute('data-theme') === 'dark') {
-        html.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'light');
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-    } else {
-        html.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-    }
+    themeIcon.classList.toggle('fa-sun');
+    themeIcon.classList.toggle('fa-moon');
 }
-
-function setTheme() {
-    const html = document.documentElement;
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        html.setAttribute('data-theme', 'dark');
-    } else if (savedTheme === 'light') {
-        html.removeAttribute('data-theme');
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        html.setAttribute('data-theme', 'dark');
-    }
-}
-
-// Call setTheme on page load
-// Call setTheme on page load
-document.addEventListener('DOMContentLoaded', () => {
-    setTheme();
-    const themeIcon = document.getElementById('themeIcon');
-    if (document.documentElement.getAttribute('data-theme') === 'dark') {
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-    }
-});
-
-// Listen for changes in system color scheme
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
-
 document.addEventListener('DOMContentLoaded', () => {
     const games = {
         1: {
