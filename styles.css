@@ -39,33 +39,48 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Horizontal Game Selection */
+/* Horizontal Game Selection Fix */
 .grid-container {
     display: flex;
-    justify-content: space-between; /* Horizontal arrangement */
-    gap: 20px; /* More gap between game options */
-    margin-bottom: 20px;
-    overflow-x: auto; /* Horizontal scrolling if needed */
+    justify-content: space-evenly; /* Space the games evenly */
+    gap: 10px; /* Small gap between items */
+    overflow-x: auto; /* Allow horizontal scrolling */
+    max-width: 100%; /* Allow container to take full width */
 }
 
-/* Game Option Styling */
 .game-option {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 10px;
-    width: 120px; /* Adjusted for horizontal */
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    color: #fff;
-    font-size: 14px;
+    min-width: 120px; /* Minimum width to prevent cropping */
+    max-width: 120px; /* Maximum width to maintain uniform size */
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .game-option img {
-    width: 100px; /* Adjusted for better image fit */
-    border-radius: 50%; /* Circular icons */
-    margin-bottom: 8px;
+    width: 100%; /* Full width for images to prevent cropping */
+    border-radius: 10px; /* Soft rounded corners */
+}
+
+/* Responsive Design for Mobile */
+@media only screen and (max-width: 600px) {
+    .game-option {
+        min-width: 90px; /* Smaller width for mobile screens */
+        max-width: 90px;
+    }
+    
+    .game-option img {
+        width: 100%;
+    }
+}
+
+/* Responsive Design for Larger Devices */
+@media only screen and (min-width: 768px) {
+    .game-option {
+        min-width: 140px; /* Larger width for tablets/laptops */
+        max-width: 140px;
+    }
 }
 
 .game-option:hover {
