@@ -1,95 +1,186 @@
-/* General styling */
+/* Reset default margins */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the overall font */
 body {
-  font-family: 'Arial', sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #f0f8ff;
-  color: #333;
-  margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #1c1c1e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.5s ease-in-out;
 }
 
-h2 {
-  font-size: 24px;
-  color: #005f73;
+.container {
+    background-color: #2c2c34;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
 }
 
-.choices, .computer {
-  text-align: center;
-  margin: 20px;
+h1 {
+    color: #4CAF50;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 255, 0, 0.4);
+    animation: fadeIn 1s ease-in-out;
 }
 
-.btns {
-  margin-top: 10px;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.game-option {
+    background-color: #3c3c44;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.game-option img {
+    width: 100%;
+    border-bottom: 2px solid #4CAF50;
+}
+
+.game-option p {
+    margin: 10px;
+    color: #4CAF50;
+    font-weight: 500;
+}
+
+.game-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Range slider styling */
+.key-slider input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+    accent-color: #4CAF50;
+}
+
+.key-slider span {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Progress bar styling */
+.progress-bar {
+    background-color: #4CAF50;
+    height: 8px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#progressBar {
+    background-color: #ff9800;
+    height: 100%;
+    width: 0%;
+    animation: loading 2s infinite;
+}
+
+#progressText, #progressLog {
+    margin-top: 10px;
 }
 
 button {
-  font-size: 50px;
-  padding: 10px;
-  margin: 10px;
-  cursor: pointer;
-  background-color: #0a9396;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 10px 20px;
+    background-color: #ff5722;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
 }
 
 button:hover {
-  background-color: #005f73;
-  transform: scale(1.1);
+    background-color: #e64a19;
 }
 
-button:active {
-  background-color: #94d2bd;
-  transform: scale(1.05);
-}
-
-/* Computer hand styling */
-#animation {
-  font-size: 50px;
-  color: #ee9b00;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #ca6702;
-  transition: all 0.3s ease;
-}
-
-/* Result display */
-#result {
-  font-size: 30px;
-  margin-top: 20px;
-  color: #d62828;
-}
-
-/* Fireworks container */
-#fireworks-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-}
-
-@media (max-width: 600px) {
-  button {
-    font-size: 40px;
-    padding: 8px;
-  }
-
-  #animation {
-    font-size: 40px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  #result {
+#themeToggleBtn {
+    background-color: transparent;
+    border: none;
     font-size: 24px;
-  }
+    color: white;
+}
+
+#themeIcon {
+    transition: transform 0.3s ease;
+}
+
+#themeIcon.fa-sun {
+    color: #ff9800;
+}
+
+#themeIcon.fa-moon {
+    color: #2196f3;
+}
+
+/* Footer styling */
+.footer {
+    margin-top: 20px;
+    color: #b0b0b0;
+    font-size: 0.9rem;
+}
+
+.footer button {
+    margin-top: 10px;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes loading {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+/* Light theme */
+.light-mode {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.light-mode .container {
+    background-color: #fff;
+    color: #333;
+}
+
+.light-mode .game-option {
+    background-color: #e0e0e0;
+}
+
+.light-mode h1 {
+    color: #2196f3;
+    text-shadow: 2px 2px 8px rgba(0, 120, 255, 0.4);
+}
+
+.light-mode button {
+    background-color: #2196f3;
+}
+
+.light-mode button:hover {
+    background-color: #1976d2;
+}
+
+.light-mode #progressBar {
+    background-color: #f44336;
 }
