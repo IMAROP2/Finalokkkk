@@ -1,9 +1,20 @@
+// Toggle Light and Dark Mode
 function toggleTheme() {
     document.body.classList.toggle('light-mode');
     const themeIcon = document.getElementById('themeIcon');
     themeIcon.classList.toggle('fa-sun');
     themeIcon.classList.toggle('fa-moon');
 }
+
+// Add game selection animation
+document.querySelectorAll('.game-option').forEach(option => {
+    option.addEventListener('click', () => {
+        option.classList.add('selected');
+        setTimeout(() => {
+            option.classList.remove('selected');
+        }, 1000);
+    });
+});
 document.addEventListener('DOMContentLoaded', () => {
     const games = {
         1: {
