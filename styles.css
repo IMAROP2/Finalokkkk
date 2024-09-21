@@ -1,6 +1,3 @@
-
-
-
 /* Global Styling */
 body {
     font-family: 'Roboto', sans-serif;
@@ -11,8 +8,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    padding: 20px; /* Added padding to avoid content being too close to the edges */
-    box-sizing: border-box; /* Ensure padding is included in the width and height */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Container Styling */
@@ -20,303 +17,107 @@ body {
     background: rgba(0, 0, 0, 0.8); /* Transparent black background */
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-    padding: 20px; /* Reduced padding */
-    max-width: 90%; /* Responsive width */
+    padding: 20px;
+    max-width: 90%;
     width: 100%;
-    max-width: 400px; /* Adjusted max-width for smaller screens */
+    max-width: 600px; /* Adjusted max-width for larger screens */
     text-align: center;
     position: relative;
-    overflow: hidden; /* Hide overflow for effects */
-    margin-top: 50px; /* Added margin to prevent title from being too close to the top */
+    overflow: hidden;
+    margin-top: 50px;
     box-sizing: border-box;
 }
-/* Adjust spacing for the title */
-.main-title {
-    margin-top: 50px; /* Adjust this value as needed */
-    text-align: center; /* Optional: Centers the title */
-}
+
 /* Heading Styling */
 h1 {
-    margin-bottom: 20px; /* Reduced margin */
-    font-size: 22px; /* Adjusted font size */
-    color: #ffb3ff; /* Light pink text */
-    text-shadow: 2px 2px 4px #000; /* Shadow effect */
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #ffb3ff;
+    text-shadow: 2px 2px 4px #000;
 }
 
 /* Grid Container */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
-    gap: 10px; /* Reduced gap */
-    margin-bottom: 15px; /* Reduced margin */
-    max-height: 250px; /* Adjusted max-height */
+    gap: 10px;
+    margin-bottom: 15px;
+    max-height: 250px;
     overflow-y: auto;
-    padding-right: 5px; /* Reduced padding */
+    padding-right: 5px;
 }
 
 /* Game Option Styling */
 .game-option {
     border: 2px solid transparent;
-    border-radius: 10px; /* Adjusted border-radius */
-    padding: 10px; /* Reduced padding */
+    border-radius: 10px;
+    padding: 10px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Adjusted transition */
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     background: rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
     color: #fff;
-    font-size: 14px; /* Adjusted font size */
+    font-size: 14px;
 }
 
-/* Glitter Effect - Differentiated for each game */
-.game-option.selected {
-    border-color: #ff007f; /* Different color for selected */
-    animation: glitter 2s infinite; /* Glitter animation */
-    background: linear-gradient(45deg, #ff007f, #ff8c00); /* Gradient for selected */
-}
-
-@keyframes glitter {
-    0%, 100% { box-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f; }
-    50% { box-shadow: 0 0 20px #ff8c00, 0 0 40px #ff8c00; }
-}
-
-/* Hover and Selection Effects */
 .game-option:hover {
-    transform: scale(1.05); /* Slightly reduced scale */
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Reduced box-shadow */
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
-.game-option.selected::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: rotate(45deg);
-    pointer-events: none;
-    animation: moveLight 3s infinite;
-}
-
-@keyframes moveLight {
-    0% { left: -100%; top: -100%; }
-    50% { left: 100%; top: 100%; }
-    100% { left: -100%; top: -100%; }
-}
-
-/* Game Option Images */
 .game-option img {
     width: 100%;
     border-radius: 8px;
-    margin-bottom: 5px; /* Reduced margin */
-    transition: filter 0.3s; /* Adjusted transition */
+    margin-bottom: 5px;
+    transition: filter 0.3s;
 }
 
 .game-option:hover img {
     filter: brightness(1.2);
 }
 
-/* Labels and Text */
-label {
-    display: block;
-    margin-bottom: 5px; /* Reduced margin */
-    font-weight: 500;
-    color: #ffb3ff;
-}
-
-p {
-    font-weight: 500;
-    color: #fff;
-}
-
-/* Key Slider */
-.key-slider input[type="range"] {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 6px; /* Reduced height */
-    border-radius: 5px;
-    background: linear-gradient(90deg, #ff007f, #ff8c00);
-    outline: none;
-    transition: background 0.3s;
-}
-
-.key-slider input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 18px; /* Reduced width */
-    height: 18px; /* Reduced height */
-    border-radius: 50%;
-    background: #ff007f;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.key-slider input[type="range"]:hover::-webkit-slider-thumb {
-    background: #ff8c00;
-}
-
 /* Buttons */
 button {
-    background-color: #ff007f;
+    background: linear-gradient(135deg, #ff007f, #ff8c00);
     color: white;
     border: none;
-    padding: 10px 20px; /* Reduced padding */
-    font-size: 14px; /* Adjusted font size */
-    border-radius: 8px; /* Adjusted border-radius */
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 0 10px rgba(255, 0, 127, 0.5); /* Pink glow */
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
 }
 
 button:hover {
-    background-color: #ff8c00;
-    transform: scale(1.05); /* Slightly reduced scale */
-    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5); /* Orange glow */
+    background: linear-gradient(135deg, #ff8c00, #ff007f);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.8);
 }
 
-/* Loading Spinner */
-.loading-spinner {
-    border: 4px solid rgba(255, 255, 255, 0.2);
-    border-top: 4px solid #ff007f;
-    border-radius: 50%;
-    width: 30px; /* Reduced width */
-    height: 30px; /* Reduced height */
-    animation: loading 1s linear infinite;
-    margin: 20px auto; /* Reduced margin */
-}
-
-@keyframes loading {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Footer */
-.footer {
-    margin-top: 20px;
-    font-size: 12px;
-    color: #ffb3ff;
-    text-shadow: 2px 2px 4px #000;
-}
-
-/* Copy Status Message */
-#copyStatus {
-    margin-top: 10px;
-    color: #28a745;
-    font-weight: bold;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    visibility: hidden; /* Initially hidden */
-}
-
-/* Show Copy Status Message only when keys are copied */
-.keys-copied #copyStatus {
-    visibility: visible;
-}
-
-/* Enhanced Disclaimer Styling */
-.disclaimer {
-    font-size: 16px; /* Larger font size */
-    color: #ffc1c1; /* Softer pink text */
-    margin-top: 20px;
-    padding: 15px;
-    background-color: rgba(0, 0, 0, 0.85);
-    border-radius: 10px;
-    text-align: center;
-    font-weight: 600;
-    text-shadow: 1px 1px 4px #000;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.disclaimer:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-.disclaimer::after {
-    content: "If you have any issues, contact the creator of the bot @Imarop first on Telegram.";
-    display: block;
-    margin-top: 12px;
-    color: #ff99ff;
-    font-size: 14px;
-    font-weight: 400;
-    text-shadow: 1px 1px 3px #000;
-    padding-top: 8px;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Creator Section Styling with Clickable Link (continued) */
-.creator-section {
-    margin-top: 30px;
-    padding: 15px;
-    background: linear-gradient(135deg, #ff6666, #ff3333, #8000ff);
-    background-size: 400% 400%;
-    color: #fff;
-    text-align: center;
-    border-radius: 12px;
-    font-weight: 700;
-    text-shadow: 2px 2px 5px #000;
-    animation: gradientShift 4s ease infinite;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-.creator-section:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-}
-
-.creator-section a {
-    color: #ffff00; /* Bright yellow link color */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.creator-section a:hover {
-    text-decoration: underline;
-}
-
-/* Gradient Shift Animation */
-@keyframes gradientShift {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-}
-.new-badge {
-    position: absolute;
-    top: 3px; /* Reduced space from the top */
-    right: 3px; /* Reduced space from the right */
-    background-color: red;
-    color: white;
-    padding: 1px 3px; /* Smaller padding */
-    border-radius: 2px; /* Slightly smaller corner radius */
-    font-size: 8px; /* Reduced font size */
-    font-weight: bold;
-}
-
-.game-option {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    margin: 10px;
-}
-/* Container for the notice section */
+/* Notice Section */
 .notice-section {
     margin-top: 30px;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: rgba(52, 152, 219, 0.1);
     border-left: 5px solid #3498db;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.notice-section:hover {
+    background-color: rgba(52, 152, 219, 0.3);
+    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .notice-section h3 {
     font-weight: 700;
-    color: #2c3e50;
+    color: #fff;
     margin-bottom: 10px;
 }
 
@@ -338,28 +139,62 @@ button:hover {
     background-color: #2980b9;
 }
 
-/* Footer Styling */
-.footer {
-    margin-top: 30px;
-    text-align: center;
+/* Loading Spinner */
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top: 4px solid #ff007f;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: loading 1s linear infinite;
+    margin: 20px auto;
 }
 
-.footer button {
-    margin-top: 10px;
-    padding: 8px 15px;
-    border: none;
-    background-color: #3498db;
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
+@keyframes loading {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-.footer button:hover {
-    background-color: #2980b9;
-}
 /* Footer */
 .footer {
     margin-top: 20px;
     font-size: 14px;
     color: #ffcc00;
+    text-align: center;
+}
+
+/* Responsive tweaks for smaller devices */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 10px;
+    }
+    h1 {
+        font-size: 18px;
+    }
+    .game-option {
+        font-size: 12px;
+        padding: 8px;
+    }
+    .key-slider input[type="range"] {
+        height: 4px;
+    }
+    button {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+    .notice-section {
+        padding: 15px;
+        font-size: 14px;
+    }
+}
+
+/* Adjusting layout for larger screens */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 600px;
+    }
+    h1 {
+        font-size: 26px;
+    }
 }
