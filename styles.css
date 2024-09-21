@@ -6,11 +6,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Ensures the content doesn't overflow */
     margin: 0;
-    padding: 0;
+    padding: 10px;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Avoid horizontal scrolling */
 }
 
 /* Container Styling */
@@ -19,31 +19,44 @@ body {
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
     padding: 20px;
-    max-width: 90%; /* Responsive width */
     width: 100%;
     max-width: 400px;
     text-align: center;
     position: relative;
     overflow: hidden;
+    margin-top: 50px;
     box-sizing: border-box;
 }
 
-/* Heading Styling */
+/* Responsive title adjustments */
 h1 {
-    margin-bottom: 20px;
-    font-size: 22px;
+    font-size: 24px; /* Make title slightly bigger */
     color: #ffb3ff;
     text-shadow: 2px 2px 4px #000;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 20px; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px; /* Smaller screen font size */
+    }
 }
 
 /* Grid Container */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive grid for smaller screens */
     gap: 10px;
     margin-bottom: 15px;
     max-height: 250px;
     overflow-y: auto;
+    padding-right: 5px;
 }
 
 /* Game Option Styling */
@@ -56,11 +69,29 @@ h1 {
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     background: rgba(255, 255, 255, 0.1);
     position: relative;
-    overflow: hidden;
     color: #fff;
     font-size: 14px;
 }
 
+/* Glitter Effect */
+.game-option.selected {
+    border-color: #ff007f;
+    animation: glitter 2s infinite;
+    background: linear-gradient(45deg, #ff007f, #ff8c00);
+}
+
+@keyframes glitter {
+    0%, 100% { box-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f; }
+    50% { box-shadow: 0 0 20px #ff8c00, 0 0 40px #ff8c00; }
+}
+
+/* Hover and Selection Effects */
+.game-option:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Game Option Images */
 .game-option img {
     width: 100%;
     border-radius: 8px;
@@ -82,63 +113,37 @@ button {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
 }
 
 button:hover {
     background-color: #ff8c00;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
 }
 
-/* Notice Section */
-.notice-section {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-left: 5px solid #3498db;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    color: #333;
+/* Footer */
+.footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #ffb3ff;
+    text-shadow: 2px 2px 4px #000;
 }
 
-.notice-section h3 {
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 10px;
-}
-
-/* Media Queries for Mobile Responsiveness */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 18px; /* Adjust title size for smaller screens */
-        margin-top: 10px; /* Provide space at the top */
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        max-width: 100%;
     }
 
-    .container {
-        margin: 10px auto; /* Center container on small screens */
-        padding: 15px;
+    .game-option {
+        padding: 8px;
+        font-size: 12px;
     }
 
     button {
-        font-size: 12px; /* Adjust button text for smaller screens */
-        padding: 8px 16px;
-    }
-
-    .notice-section {
-        padding: 15px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 16px; /* Further reduce title size for very small screens */
-    }
-
-    .container {
-        width: 100%;
-        max-width: 320px; /* Ensure container fits well on small screens */
-    }
-
-    .notice-section {
-        padding: 10px;
         font-size: 12px;
+        padding: 8px 15px;
     }
 }
