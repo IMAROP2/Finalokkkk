@@ -1,22 +1,11 @@
 document.getElementById('loadNewSectionBtn').addEventListener('click', function() {
-    // Fetch new HTML content (for demo, using hardcoded content)
-    const newSectionHTML = `
-        <h2>New Section</h2>
-        <p>This is a dynamically loaded section with its own content.</p>
-        <button id="newActionBtn">Click Me!</button>
-    `;
-    
-    // Insert the new section into the DOM
-    document.getElementById('newSection').innerHTML = newSectionHTML;
+    // Hide the old section and show the new section
+    document.getElementById('oldSection').classList.add('hidden');
+    document.getElementById('newSection').classList.remove('hidden');
+});
 
-    // Load additional CSS
-    const newStyles = document.createElement('link');
-    newStyles.rel = 'stylesheet';
-    newStyles.href = 'newStyles.css';
-    document.head.appendChild(newStyles);
-
-    // Load additional JS (for button functionality in the new section)
-    const script = document.createElement('script');
-    script.src = 'newScript.js';
-    document.body.appendChild(script);
+document.getElementById('backToOldSectionBtn').addEventListener('click', function() {
+    // Hide the new section and show the old section
+    document.getElementById('newSection').classList.add('hidden');
+    document.getElementById('oldSection').classList.remove('hidden');
 });
