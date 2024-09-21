@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="oldSection">
         <h1>Hamster Key Generator</h1>
+        <!-- Existing content of the old section -->
         <div id="gameSelectContainer" class="grid-container">
-	<div class="game-option" data-game="20">
+            <div class="game-option" data-game="20">
                 <img src="https://cdn.hamsterkombat.io/factory_world/image.webp" alt="Factory World">
                 <p>Factory World</p>
             </div>
@@ -110,32 +111,29 @@
         <button id="generateMoreBtn" class="hidden">Generate More Keys</button>
         <p id="copyStatus" class="hidden">Keys copied to clipboard!</p>
         
-        <div class="footer">
-            <p>Disclaimer: This tool is for educational purposes only. Use responsibly.</p>
-            <button id="sourceCode">Telegram</button>
-			<button id="themeToggleBtn" onclick="toggleTheme()"><i id="themeIcon" class="fas fa-sun"></i></button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
-        <button id="loadNewSectionBtn">Load New Section</button>
-
-        <!-- Placeholder for new section -->
-        <div id="newSection"></div>
 
         <div class="footer">
             <p>Disclaimer: This tool is for educational purposes only. Use responsibly.</p>
             <button id="sourceCode">Telegram</button>
             <button id="themeToggleBtn" onclick="toggleTheme()"><i id="themeIcon" class="fas fa-sun"></i></button>
+            <!-- Button to load new section and hide the old section -->
+            <button id="loadNewSectionBtn">Go to New Section</button>
         </div>
     </div>
 
-    <!-- Existing JS -->
-    <script src="script.js"></script>
+    <!-- New section, initially hidden -->
+    <div class="container hidden" id="newSection">
+        <h2>New Section</h2>
+        <p>This is a dynamically loaded section with its own content.</p>
+        <button id="newActionBtn">Click Me!</button>
 
-    <!-- Additional JS for loading new section -->
+        <div class="footer">
+            <!-- Button to go back to the old section and hide the new section -->
+            <button id="backToOldSectionBtn">Back to Old Section</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
     <script src="loadNewSection.js"></script>
 </body>
 </html>
