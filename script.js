@@ -1,20 +1,46 @@
-// Toggle Light and Dark Mode
 function toggleTheme() {
-    document.body.classList.toggle('light-mode');
+    const html = document.documentElement;
     const themeIcon = document.getElementById('themeIcon');
-    themeIcon.classList.toggle('fa-sun');
-    themeIcon.classList.toggle('fa-moon');
+    
+    if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    } else {
+        html.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    }
 }
 
-// Add game selection animation
-document.querySelectorAll('.game-option').forEach(option => {
-    option.addEventListener('click', () => {
-        option.classList.add('selected');
-        setTimeout(() => {
-            option.classList.remove('selected');
-        }, 1000);
-    });
+function setTheme() {
+    const html = document.documentElement;
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        html.setAttribute('data-theme', 'dark');
+    } else if (savedTheme === 'light') {
+        html.removeAttribute('data-theme');
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        html.setAttribute('data-theme', 'dark');
+    }
+}
+
+// Call setTheme on page load
+// Call setTheme on page load
+document.addEventListener('DOMContentLoaded', () => {
+    setTheme();
+    const themeIcon = document.getElementById('themeIcon');
+    if (document.documentElement.getAttribute('data-theme') === 'dark') {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    }
 });
+
+// Listen for changes in system color scheme
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
+
 document.addEventListener('DOMContentLoaded', () => {
     const games = {
         1: {
@@ -98,21 +124,77 @@ document.addEventListener('DOMContentLoaded', () => {
             name: 'Fluff Crusade',
             appToken: '112887b0-a8af-4eb2-ac63-d82df78283d9',
             promoId: '112887b0-a8af-4eb2-ac63-d82df78283d9',
-            timing: 20000, // 40 seconds
+            timing: 20000, // 20 seconds
             attempts: 30,
         },
         13: {
             name: 'Stone Age',
             appToken: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af',
             promoId: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af',
-            timing: 20000, // 40 seconds
+            timing: 20000, // 20 seconds
             attempts: 30,
         },
        14: {
             name: 'Bouncemasters',
             appToken: 'bc72d3b9-8e91-4884-9c33-f72482f0db37',
             promoId: 'bc72d3b9-8e91-4884-9c33-f72482f0db37',
-            timing: 20000, // 40 seconds
+            timing: 20000, // 20 seconds
+            attempts: 30,
+        },
+        15: {
+            name: 'Hide Ball',
+            appToken: '4bf4966c-4d22-439b-8ff2-dc5ebca1a600',
+            promoId: '4bf4966c-4d22-439b-8ff2-dc5ebca1a600',
+            timing: 40000, // 30 seconds
+            attempts: 30,
+        },
+        16: {
+            name: 'Pin Out Master',
+            appToken: 'd2378baf-d617-417a-9d99-d685824335f0',
+            promoId: 'd2378baf-d617-417a-9d99-d685824335f0',
+            timing: 20000, // 30 seconds
+            attempts: 30,
+        },
+        17: {
+            name: 'Count Masters',
+            appToken: '4bdc17da-2601-449b-948e-f8c7bd376553',
+            promoId: '4bdc17da-2601-449b-948e-f8c7bd376553',
+            timing: 20000, // 30 seconds
+            attempts: 30,
+        },
+        18: {
+            name: 'Infected Frontier',
+            appToken: 'eb518c4b-e448-4065-9d33-06f3039f0fcb',
+            promoId: 'eb518c4b-e448-4065-9d33-06f3039f0fcb',
+            timing: 20000, // 30 seconds
+            attempts: 30,
+        },
+        19: {
+            name: 'Among Water',
+            appToken: 'daab8f83-8ea2-4ad0-8dd5-d33363129640',
+            promoId: 'daab8f83-8ea2-4ad0-8dd5-d33363129640',
+            timing: 20000, // 30 seconds
+            attempts: 30,
+        },
+        20: {
+            name: 'Factory World',
+            appToken: 'd02fc404-8985-4305-87d8-32bd4e66bb16',
+            promoId: 'd02fc404-8985-4305-87d8-32bd4e66bb16',
+            timing: 20000, // 30 seconds
+            attempts: 30,
+        },
+        21: {
+            name: 'Snake Run',
+            appToken: 'c8e017e2-8817-4d02-bce6-b951e74bb18f',
+            promoId: 'c8e017e2-8817-4d02-bce6-b951e74bb18f',
+            timing: 20000, // 30 seconds
+            attempts: 30,
+        },
+       22: {
+            name: 'Cooking Stories',
+            appToken: 'ed526e8c-e6c8-40fd-b72a-9e78ff6a2054',
+            promoId: 'ed526e8c-e6c8-40fd-b72a-9e78ff6a2054',
+            timing: 20000, // 30 seconds
             attempts: 30,
         }
     };
@@ -138,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let selectedGame = null;
 
     sourceCode.addEventListener('click', () => {
-        window.open('https://t.me/HamesterKombatdailyUpdates', '_blank');
+        window.open('https://t.me/Airdrify', '_blank');
     });
 
     gameOptions.forEach(option => {
@@ -377,4 +459,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 });
-
