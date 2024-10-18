@@ -1,26 +1,28 @@
 /* Global Styling */
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to right, #1f1c2c, #928dab);
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    background-size: 400% 400%;
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Ensures the content doesn't overflow */
+    height: 100vh;
     margin: 0;
-    padding: 10px;
+    padding: 20px;
     box-sizing: border-box;
-    overflow-x: hidden; /* Avoid horizontal scrolling */
+    animation: bgGradientShift 8s ease-in-out infinite; /* Smooth background gradient transition */
 }
 
 /* Container Styling */
 .container {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.1); /* Lighter transparent background */
     border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Softer shadow */
+    padding: 30px;
+    max-width: 90%;
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -28,33 +30,37 @@ body {
     box-sizing: border-box;
 }
 
-/* Responsive title adjustments */
+/* Gradient Animation for Background */
+@keyframes bgGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Title Styling */
 h1 {
-    font-size: 24px; /* Make title slightly bigger */
-    color: #ffb3ff;
-    text-shadow: 2px 2px 4px #000;
     margin-bottom: 20px;
+    font-size: 28px;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b, #ff006e, #9b5de5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGradientShift 6s ease-in-out infinite; /* Gradient transition */
+    text-shadow: 2px 2px 4px #000;
 }
 
-@media (max-width: 768px) {
-    h1 {
-        font-size: 20px; /* Adjust font size for smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 18px; /* Smaller screen font size */
-    }
+@keyframes textGradientShift {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
 }
 
 /* Grid Container */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive grid for smaller screens */
-    gap: 10px;
-    margin-bottom: 15px;
-    max-height: 250px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+    max-height: 300px;
     overflow-y: auto;
     padding-right: 5px;
 }
@@ -62,88 +68,136 @@ h1 {
 /* Game Option Styling */
 .game-option {
     border: 2px solid transparent;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
+    border-radius: 12px;
+    padding: 12px;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    background: rgba(255, 255, 255, 0.1);
-    position: relative;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
     color: #fff;
-    font-size: 14px;
+    transition: transform 0.4s, box-shadow 0.4s, background 0.4s;
+    position: relative;
+    overflow: hidden;
+    font-size: 16px;
 }
 
-/* Glitter Effect */
-.game-option.selected {
-    border-color: #ff007f;
-    animation: glitter 2s infinite;
-    background: linear-gradient(45deg, #ff007f, #ff8c00);
-}
-
-@keyframes glitter {
-    0%, 100% { box-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f; }
-    50% { box-shadow: 0 0 20px #ff8c00, 0 0 40px #ff8c00; }
-}
-
-/* Hover and Selection Effects */
 .game-option:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    background: linear-gradient(135deg, #ff6f91, #ff9671, #ffc75f, #f9f871);
+    background-size: 200% 200%;
+    animation: hoverGradientShift 3s ease infinite;
+}
+
+@keyframes hoverGradientShift {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
 }
 
 /* Game Option Images */
 .game-option img {
     width: 100%;
-    border-radius: 8px;
-    margin-bottom: 5px;
-    transition: filter 0.3s;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    transition: filter 0.3s, transform 0.3s;
 }
 
 .game-option:hover img {
-    filter: brightness(1.2);
+    filter: brightness(1.3);
+    transform: scale(1.05);
 }
 
-/* Buttons */
+/* Selected State */
+.game-option.selected {
+    border-color: #00f5d4;
+    background: linear-gradient(45deg, #00f5d4, #00bbf9, #ff006e, #f77f00);
+    animation: glitter 2s infinite alternate-reverse; /* Glitter effect */
+}
+
+@keyframes glitter {
+    0%, 100% { box-shadow: 0 0 15px #00f5d4, 0 0 25px #00f5d4; }
+    50% { box-shadow: 0 0 30px #ff006e, 0 0 50px #f77f00; }
+}
+
+/* Button Styling */
 button {
-    background-color: #ff007f;
+    background: linear-gradient(45deg, #6a0572, #b300a3, #ff5c8d, #ffb47b);
     color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    border-radius: 8px;
+    padding: 12px 25px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+    font-size: 16px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.7);
+    animation: buttonGlow 3s ease-in-out infinite;
 }
 
 button:hover {
-    background-color: #ff8c00;
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 140, 0, 0.7);
 }
 
-/* Footer */
-.footer {
-    margin-top: 20px;
-    font-size: 12px;
-    color: #ffb3ff;
-    text-shadow: 2px 2px 4px #000;
+@keyframes buttonGlow {
+    0%, 100% { box-shadow: 0 0 10px #ff006e, 0 0 20px #00bbf9; }
+    50% { box-shadow: 0 0 20px #6a0572, 0 0 40px #b300a3; }
 }
 
-/* Mobile Adjustments */
-@media (max-width: 600px) {
-    .container {
-        padding: 15px;
-        max-width: 100%;
-    }
+/* Enhanced Disclaimer */
+.disclaimer {
+    font-size: 16px;
+    color: #ffc1c1;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 12px;
+    text-align: center;
+    text-shadow: 1px 1px 4px #000;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
-    .game-option {
-        padding: 8px;
-        font-size: 12px;
-    }
+.disclaimer:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+}
 
-    button {
-        font-size: 12px;
-        padding: 8px 15px;
-    }
+.disclaimer::after {
+    content: "If you have any issues, contact the creator of the bot @Imarop first on Telegram.";
+    display: block;
+    margin-top: 10px;
+    color: #ff99ff;
+    font-size: 14px;
+    text-shadow: 1px 1px 3px #000;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Creator Section with Smooth Gradient */
+.creator-section {
+    margin-top: 30px;
+    padding: 15px;
+    background: linear-gradient(45deg, #ff6666, #ff3333, #8000ff);
+    background-size: 400% 400%;
+    color: #fff;
+    text-align: center;
+    border-radius: 12px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px #000;
+    animation: gradientShift 6s ease-in-out infinite;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+}
+
+.creator-section:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+.creator-section a {
+    color: #ffff00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.creator-section a:hover {
+    text-decoration: underline;
 }
